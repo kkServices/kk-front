@@ -1,0 +1,57 @@
+{
+  "name": "kk-project",
+  "type": "module",
+  "private": true,
+  "packageManager": "pnpm@9.4.0",
+  "engines": {
+    "node": "20"
+  },
+  "scripts": {
+    "prepare": "husky",
+    "up": "taze major -I",
+    "lint-staged": "lint-staged",
+    "preinstall": "npx only-allow pnpm",
+    "clean": "turbo run clean && rimraf node_modules",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix"
+  },
+  "dependencies": {
+    "@kk-project/logger": "workspace:^",
+    "@kk-project/utils": "workspace:^"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.21.2",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-angular": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@eslint/eslintrc": "^3.1.0",
+    "@iconify/json": "^2.2.224",
+    "@types/node": "^20.14.9",
+    "autoprefixer": "^10.4.19",
+    "consola": "^3.2.3",
+    "dotenv-cli": "^7.4.2",
+    "eslint": "^9.6.0",
+    "eslint-plugin-format": "^0.1.2",
+    "eslint-plugin-simple-import-sort": "^12.1.0",
+    "eslint-ts-patch": "9.4.0-0",
+    "husky": "^9.0.11",
+    "jsdom": "^24.1.0",
+    "lint-staged": "^15.2.7",
+    "postcss": "^8.4.39",
+    "postcss-import": "^16.1.0",
+    "postcss-load-config": "^6.0.1",
+    "postcss-scss": "^4.0.9",
+    "rimraf": "^5.0.7",
+    "sass": "^1.77.6",
+    "taze": "^0.14.0",
+    "turbo": "^2.0.6",
+    "typescript": "^5.5.3",
+    "vitest": "^1.6.0"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  },
+  "volta": {
+    "node": "20.15.0"
+  }
+}

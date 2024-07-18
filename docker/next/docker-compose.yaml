@@ -1,0 +1,8 @@
+name: next-mobile
+
+services:
+  kp-mobile:
+    image: next-mobile:latest
+    ports:
+      - '3000:3000'
+    restart: always

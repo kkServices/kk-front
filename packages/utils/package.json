@@ -1,0 +1,27 @@
+{
+  "name": "@kk-project/utils",
+  "type": "module",
+  "private": true,
+  "exports": {
+    "./index": "./src/index.ts"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "src/*"
+      ]
+    }
+  },
+  "scripts": {
+    "test": "vitest",
+    "clean": "rimraf node_modules",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "dayjs": "^1.11.11",
+    "nanoid": "^5.0.7",
+    "tailwind-merge": "^2.3.0"
+  }
+}

@@ -1,0 +1,9 @@
+.dockerignore
+node_modules
+**/node_modules
+**/.next
+docker
+.git
+logs
+.turbo
+npm-debug.log
