@@ -2,6 +2,7 @@ import { appDescription } from './src/constants'
 
 export default defineNuxtConfig({
   srcDir: 'src',
+
   imports: {
     dirs: ['composables/**'],
   },
@@ -88,4 +89,5 @@ export default defineNuxtConfig({
     },
   },
 
+  compatibilityDate: '2024-07-20',
 })

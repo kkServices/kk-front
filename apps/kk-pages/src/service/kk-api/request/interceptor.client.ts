@@ -1,5 +1,4 @@
 import type { FetchContext, FetchResponse } from 'ofetch'
-import { isFormUrlencoded, transformBody } from './utils'
 import { statusCodeError } from './errorHandler'
 import type { FetchOptionsClient } from './type'
 
@@ -12,18 +11,8 @@ const defaultMeta: Required<MetaClient> = {
 function onRequestClient({ options: _options }: FetchContext) {
   const options: FetchOptionsClient = _options
   options.meta = { ...defaultMeta, ...options.meta }
-  const type = options.method?.toUpperCase() || 'GET'
   if (!options.baseURL) {
     options.baseURL = useRuntimeConfig().public.baseApiHost
-  }
-
-  options.headers = {
-    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-    ...options.headers,
-  }
-
-  if (type !== 'GET' && isFormUrlencoded(options)) {
-    options.body = transformBody(options)
   }
 }
 

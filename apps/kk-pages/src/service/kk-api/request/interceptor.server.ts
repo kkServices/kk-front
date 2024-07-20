@@ -1,5 +1,4 @@
 import type { FetchContext, FetchResponse } from 'ofetch'
-import { isFormUrlencoded, transformBody } from './utils'
 import { statusCodeError } from './errorHandler'
 import type { FetchOptionsServer } from './type'
 import type { NuxtApp } from '#app'
@@ -27,14 +26,9 @@ const onRequestServer = function ({ options: _options }: FetchContext) {
   options.meta = { ...defaultMeta, ...options.meta }
   options._startTime = Date.now()
 
-  const type = options.method?.toUpperCase() ?? 'GET'
   options.headers = {
     'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
     ...options.headers,
-  }
-
-  if (type !== 'GET' && isFormUrlencoded(options)) {
-    options.body = transformBody(options)
   }
 }
 
