@@ -20,7 +20,6 @@ watchEffect(() => {
 <template>
   <div flex-center>
     <img v-if="url" h-full w-full :src="url" alt="">
-    <i class="i-eos-icons-bubble-loading" />
   </div>
 </template>
 
