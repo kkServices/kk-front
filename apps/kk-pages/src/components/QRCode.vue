@@ -1,10 +1,15 @@
 <script setup lang="ts">
 import QRCode from 'qrcode'
 
-const props = defineProps({
-  text: String,
+interface Props {
+  text: string
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  text: '',
 })
-const url = useState('qrcode-url', () => '')
+
+const url = useState('qrcode-url', () => props.text)
 
 watchEffect(() => {
   QRCode.toDataURL(props.text || '')
