@@ -30,7 +30,11 @@ body,
   margin: 0 auto;
   padding: 0;
 }
-
+html {
+  background: #fff;
+  color: black;
+  transition: background 0.3s;
+}
 html.dark {
   background: #222;
   color: white;

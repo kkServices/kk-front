@@ -12,7 +12,7 @@ const props = withDefaults(defineProps<Props>(), {
 const url = useState('qrcode-url', () => props.text)
 
 watchEffect(() => {
-  QRCode.toDataURL(props.text || '')
+  QRCode.toDataURL(props.text || '', { margin: 0 })
     .then((r) => {
       url.value = r
     })
@@ -23,8 +23,8 @@ watchEffect(() => {
 </script>
 
 <template>
-  <div flex-center>
-    <img v-if="url" h-full w-full :src="url" alt="">
+  <div class="flex-center">
+    <img v-if="url" class="h-full w-full" :src="url" alt="">
   </div>
 </template>
 

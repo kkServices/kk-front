@@ -9,6 +9,8 @@ useHead({
   }],
 })
 
+const isDark = computed(() => color.value === 'dark')
+
 function toggleDark() {
   color.preference = color.value === 'dark' ? 'light' : 'dark'
 }
@@ -16,6 +18,11 @@ function toggleDark() {
 
 <template>
   <button class="!outline-none" @click="toggleDark">
-    <div class="i-carbon-sun dark:i-carbon-moon" />
+    <ClientOnly>
+      <UIcon :name="!isDark ? 'i-carbon-sun' : 'i-carbon-moon'" />
+      <template #fallback>
+        <UIcon name="i-eos-icons-three-dots-loading" />
+      </template>
+    </ClientOnly>
   </button>
 </template>

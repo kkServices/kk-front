@@ -3,7 +3,7 @@ definePageMeta({ layout: 'empty' })
 useHead({
   link: [
     { rel: 'manifest', href: '/manifest/doorlock.json' },
-    { rel: 'apple-touch-startup-image', href: 'https://bu.dusays.com/2022/03/01/d71f96540e09e.jpg' },
+    { rel: 'apple-touch-icon-precomposed', href: 'https://bu.dusays.com/2022/03/01/d71f96540e09e.jpg' },
   ],
   meta: [
     { name: 'description', content: '我爱上班' },
@@ -19,26 +19,25 @@ const { status, data, refresh } = await useFetch<{ data: string }>('https://api.
 const isLoading = computed(() => status.value === 'pending' || status.value === 'idle')
 
 onMounted(() => {
-  if (!data) {
+  if (!data.value?.data) {
     refresh()
   }
 })
 </script>
 
 <template>
-  <div h-screen flex-center flex-col>
-    <div h-65 w-65 flex-center>
+  <div class="h-screen overflow-hidden flex-center flex-col gap-4">
+    <div class="h-60 w-60 flex-center">
       <ClientOnly>
-        <QRCode h-full w-full :text="data?.data" />
+        <QRCode class="h-full w-full" :text="data?.data" />
         <template #fallback>
           <UiSkeleton class="h-full w-full" />
         </template>
       </ClientOnly>
     </div>
-    <button flex-center btn :disabled="isLoading" @click="() => refresh()">
-      <i v-if="isLoading" class="i-eos-icons-bubble-loading inline-block" />
+    <UButton class="justify-center w-32 " size="md" :loading="isLoading" :disabled="isLoading" @click="() => refresh()">
       刷新
-    </button>
+    </UButton>
   </div>
 </template>
 
