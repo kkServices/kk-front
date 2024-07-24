@@ -1,4 +1,5 @@
 import { onRequestClient, onResponseClient, onResponseErrorClient } from './interceptor.client'
+import type { NitroFetchOptions } from './type'
 
 const _request = $fetch.create({
   baseURL: '',
@@ -8,7 +9,7 @@ const _request = $fetch.create({
   onResponseError: onResponseErrorClient,
 })
 
-function requestClient<R = any>(url: string, options: NitroFetchOptions) {
+function requestClient<R>(url: string, options: NitroFetchOptions) {
   return _request<R>(url, options)
 }
 

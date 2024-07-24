@@ -2,17 +2,15 @@ import { appDescription } from './src/constants'
 
 export default defineNuxtConfig({
   srcDir: 'src',
-
   imports: {
     dirs: ['composables/**'],
   },
 
   modules: [
     '@vueuse/nuxt',
-    '@unocss/nuxt',
     '@pinia/nuxt',
-    '@nuxtjs/color-mode',
     '@nuxt/eslint',
+    '@nuxt/ui',
   ],
 
   runtimeConfig: {
@@ -30,10 +28,7 @@ export default defineNuxtConfig({
     typedPages: true,
   },
 
-  css: [
-    '@unocss/reset/tailwind.css',
-    '~/style/var.scss',
-  ],
+  css: [],
 
   colorMode: {
     classSuffix: '',
@@ -72,10 +67,7 @@ export default defineNuxtConfig({
     enabled: true,
   },
 
-  features: {
-    // For UnoCSS
-    inlineStyles: false,
-  },
+  features: {},
 
   eslint: {
     config: {
@@ -85,8 +77,18 @@ export default defineNuxtConfig({
 
   postcss: {
     plugins: {
-      '@unocss/postcss': {},
+      tailwindcss: {},
+      autoprefixer: {},
     },
+  },
+
+  tailwindcss: {
+    cssPath: '~/style/index.scss',
+    exposeConfig: true,
+  },
+  ui: {
+    safelistColors: ['main'],
+    icons: 'all',
   },
 
   compatibilityDate: '2024-07-20',

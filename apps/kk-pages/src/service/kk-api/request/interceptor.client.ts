@@ -1,6 +1,6 @@
 import type { FetchContext, FetchResponse } from 'ofetch'
 import { statusCodeError } from './errorHandler'
-import type { FetchOptionsClient } from './type'
+import type { FetchOptionsClient, MetaClient, RequestResult } from './type'
 
 const defaultMeta: Required<MetaClient> = {
   isTransformResponse: true,
@@ -16,26 +16,26 @@ function onRequestClient({ options: _options }: FetchContext) {
   }
 }
 
-async function onResponseClient<R>(context: FetchContext & { response: FetchResponse<R> }) {
+async function onResponseClient<R = RequestResult<unknown>>(context: FetchContext & { response: FetchResponse<R> }) {
   const { response, options: _options } = context
   const options: FetchOptionsClient = _options
-  const data = response._data
-  const code = data.code
+  const data = response._data as RequestResult<R>
+  const isSuccess = data.success
   const router = useRouter()
-  if (code !== 200) {
-    if (data.datas?.error && options.meta?.isToastError) {
-      console.error(data.datas.errors)
+  if (!isSuccess) {
+    if (data.message && options.meta?.isToastError) {
+      console.error(data.message)
       // showToast(data.datas.error)
     }
-    if (code === 401 && !options.meta?.ignoreLogin) {
+    if (data.code === 401 && !options.meta?.ignoreLogin) {
       await router.push('/login')
     }
 
-    throw createError({ statusCode: data.code, message: data.datas.error || statusCodeError(code), data })
+    throw createError({ statusCode: data.code, message: data.message || statusCodeError(data.code), data })
   }
 
   if (options.meta?.isTransformResponse) {
-    response._data = data.datas
+    response._data = data.data
   }
 }
 async function onResponseErrorClient<R>(context: FetchContext & { response: FetchResponse<R> }) {
