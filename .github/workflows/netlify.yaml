@@ -1,4 +1,4 @@
-name: Deploy Vercel
+name: Deploy Netlify
 
 on:
   workflow_dispatch:
@@ -60,7 +60,7 @@ jobs:
           args: deploy --filter @kk-project/kk-pages ${{ steps.extract_branch.outputs.branch == 'master' && '--prod' || '' }}
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          NETLIFY_API_TOKEN: ${{ secrets.NETLIFY_API_TOKEN }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_API_TOKEN }}
 
       - name: Delete workflow runs
         uses: Mattraks/delete-workflow-runs@v2

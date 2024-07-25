@@ -1,5 +1,5 @@
-// import { addDynamicIconSelectors } from '@iconify/tailwind'
-// import tailwindcssAnimate from 'tailwindcss-animate'
+import { addDynamicIconSelectors } from '@iconify/tailwind'
+import tailwindcssAnimate from 'tailwindcss-animate'
 import type { Config } from 'tailwindcss'
 
 function generateSpacing(min: number, max: number): Record<string, string> {
@@ -56,8 +56,8 @@ const config: Config = {
   },
   extend: {},
   plugins: [
-    // tailwindcssAnimate,
-    // addDynamicIconSelectors(),
+    tailwindcssAnimate,
+    addDynamicIconSelectors(),
   ],
 
 }

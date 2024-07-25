@@ -33,6 +33,9 @@ importers:
       '@iconify/json':
         specifier: ^2.2.229
         version: 2.2.229
+      '@iconify/tailwind':
+        specifier: ^1.1.1
+        version: 1.1.1
       '@types/node':
         specifier: ^20.14.11
         version: 20.14.11
@@ -72,6 +75,9 @@ importers:
       sass:
         specifier: ^1.77.8
         version: 1.77.8
+      tailwindcss-animate:
+        specifier: ^1.0.7
+        version: 1.0.7
       taze:
         specifier: ^0.16.1
         version: 0.16.1
@@ -1075,6 +1081,9 @@ packages:
 
   '@iconify/json@2.2.229':
     resolution: {integrity: sha512-DD1k97sjm87n+C15Ey1dVX1cBKCawfms6N0d+1vvAon5P3yurpPEO9OyU88f53+9Chpo+CuIp3+TihvsghlfQQ==}
+
+  '@iconify/tailwind@1.1.1':
+    resolution: {integrity: sha512-4mmA//qjZigv7D4KlqcVSYTqfRIJzyts2/lSCAJfCL0rVMIE76+ifJnaE5jxCo1+nYGBF8FsFo0qFOs+sX4EnA==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -5419,6 +5428,11 @@ packages:
   tailwind-merge@2.3.0:
     resolution: {integrity: sha512-vkYrLpIP+lgR0tQCG6AP7zZXCTLc1Lnv/CCRT3BqJ9CZ3ui2++GPaGb1x/ILsINIMSYqqvrpqjUFsMNLlW99EA==}
 
+  tailwindcss-animate@1.0.7:
+    resolution: {integrity: sha512-bl6mpH3T7I3UFxuvDEXLxy/VuFxBk5bbzplh7tXI68mwMokNYd1t9qPBHlnyTwfa4JGC4zP516I1hYYtQ/vspA==}
+    peerDependencies:
+      tailwindcss: '>=3.0.0 || insiders'
+
   tailwindcss@3.4.6:
     resolution: {integrity: sha512-1uRHzPB+Vzu57ocybfZ4jh5Q3SdlH7XW23J5sQoM9LhE9eIOlzxer/3XPSsycvih3rboRsvt0QCmzSrqyOYUIA==}
     engines: {node: '>=14.0.0'}
@@ -7076,6 +7090,10 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
       pathe: 1.1.2
+
+  '@iconify/tailwind@1.1.1':
+    dependencies:
+      '@iconify/types': 2.0.0
 
   '@iconify/types@2.0.0': {}
 
@@ -12368,6 +12386,8 @@ snapshots:
   tailwind-merge@2.3.0:
     dependencies:
       '@babel/runtime': 7.24.7
+
+  tailwindcss-animate@1.0.7: {}
 
   tailwindcss@3.4.6:
     dependencies:
