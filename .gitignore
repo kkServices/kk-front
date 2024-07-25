@@ -48,3 +48,6 @@ dist/**
 logs
 
 dist
+
+# Local Netlify folder
+.netlify

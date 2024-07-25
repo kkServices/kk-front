@@ -3,7 +3,7 @@ const online = useOnline()
 </script>
 
 <template>
-  <div mt-40 text-center>
+  <div class="mt-40 text-center">
     <Logos class="mb-6" />
     <Suspense>
       <ClientOnly>
@@ -13,7 +13,7 @@ const online = useOnline()
         </div>
       </ClientOnly>
       <template #fallback>
-        <div class="italic">
+        <div class="italic block">
           <span class="animate-pulse">Loading...</span>
         </div>
       </template>

@@ -67,7 +67,9 @@ export default defineNuxtConfig({
     enabled: true,
   },
 
-  features: {},
+  features: {
+    inlineStyles: false,
+  },
 
   eslint: {
     config: {
