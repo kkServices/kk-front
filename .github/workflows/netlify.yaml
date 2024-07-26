@@ -45,9 +45,8 @@ jobs:
       - name: Install dependencies
         run: |
           pnpm install --no-frozen-lockfile
-          pnpm install netlify-cli -g
 
-      - name: Deploy to Netlify
+      - name: Build
         run: |
           cp apps/kk-pages/env/.env.prod apps/kk-pages/.env.local
           pnpm --F @kk-project/kk-pages run build
