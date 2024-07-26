@@ -1,5 +1,5 @@
 @layer components {
   .btn {
-    @apply inline-block cursor-pointer rounded bg-primary px-4 py-1 text-white disabled:cursor-default disabled:bg-gray-600 hover:bg-teal-700 disabled:opacity-50;
+    --at-apply: 'inline-block cursor-pointer rounded bg-primary px-4 py-1 text-white disabled:cursor-default disabled:bg-gray-600 hover:bg-teal-700 disabled:opacity-50';
   }
 }

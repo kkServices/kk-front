@@ -6,7 +6,7 @@
       一段文字
     </p>
     <div>
-      图标：<UIcon name="i-heroicons-light-bulb" />
+      图标：<div class="i-heroicons-light-bulb" />
     </div>
   </div>
 </template>

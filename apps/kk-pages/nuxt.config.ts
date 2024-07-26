@@ -8,9 +8,10 @@ export default defineNuxtConfig({
 
   modules: [
     '@vueuse/nuxt',
+    '@unocss/nuxt',
     '@pinia/nuxt',
+    '@nuxtjs/color-mode',
     '@nuxt/eslint',
-    '@nuxt/ui',
   ],
 
   runtimeConfig: {
@@ -28,7 +29,10 @@ export default defineNuxtConfig({
     typedPages: true,
   },
 
-  css: [],
+  css: [
+    '@unocss/reset/tailwind.css',
+    '~/style/index.scss',
+  ],
 
   colorMode: {
     classSuffix: '',
@@ -79,18 +83,9 @@ export default defineNuxtConfig({
 
   postcss: {
     plugins: {
-      tailwindcss: {},
-      autoprefixer: {},
+      '@unocss/postcss': {},
+      'autoprefixer': {},
     },
-  },
-
-  tailwindcss: {
-    cssPath: '~/style/index.scss',
-    exposeConfig: true,
-  },
-  ui: {
-    safelistColors: ['main'],
-    icons: 'all',
   },
 
   compatibilityDate: '2024-07-20',

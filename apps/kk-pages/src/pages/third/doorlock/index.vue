@@ -29,18 +29,18 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="h-screen overflow-hidden flex-center flex-col gap-4">
+  <div class="h-screen flex-center flex-col gap-4 overflow-hidden">
     <div class="h-60 w-60 flex-center">
       <ClientOnly>
-        <QRCode class="h-full w-full" :text="data?.data" />
+        <QRCode class="h-60 w-60" :text="data?.data" />
         <template #fallback>
-          <Skeleton class="h-full w-full" />
+          <Skeleton class="h-60 w-60" />
         </template>
       </ClientOnly>
     </div>
-    <UButton class="justify-center w-32 " size="md" :loading="isLoading" :disabled="isLoading" @click="() => refresh()">
+    <button class="btn" :loading="isLoading" :disabled="isLoading" @click="() => refresh()">
       刷新
-    </UButton>
+    </button>
   </div>
 </template>
 

@@ -5,5 +5,5 @@ export interface SkeletonProps {
 }
 
 export const defaultProps: SkeletonProps = {
-  class: 'animate-pulse rounded-md bg-[rgba(0,0,0,0.06)]',
+  class: '',
 }
