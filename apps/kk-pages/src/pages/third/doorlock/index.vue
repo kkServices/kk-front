@@ -13,9 +13,12 @@ useHead({
 const route = useRoute<'third-doorlock'>()
 const id = route.query.id
 
-const { status, data, refresh } = await useFetch<{ data: string }>('https://api.antmoe.com/api/open/company/soho', {
-  params: { userLinglingid: id },
-})
+const { status, data, refresh } = await useFetch<{ data: string }>(
+  'https://api.antmoe.com/api/open/company/soho',
+  {
+    params: { userLinglingid: id },
+  },
+)
 const isLoading = computed(() => status.value === 'pending' || status.value === 'idle')
 
 onMounted(() => {
@@ -31,7 +34,7 @@ onMounted(() => {
       <ClientOnly>
         <QRCode class="h-full w-full" :text="data?.data" />
         <template #fallback>
-          <UiSkeleton class="h-full w-full" />
+          <Skeleton class="h-full w-full" />
         </template>
       </ClientOnly>
     </div>
