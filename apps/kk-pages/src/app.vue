@@ -21,11 +21,3 @@ useHead({
     <NuxtPage />
   </NuxtLayout>
 </template>
-
-<style>
-html {
-  background: var(--k-background-color);
-  color: var(--k-font-color);
-  transition: background 0.3s;
-}
-</style>

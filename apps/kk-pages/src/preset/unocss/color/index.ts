@@ -19,14 +19,11 @@ Object.values(colors).forEach((color) => {
   }
 })
 
-const kColorPreset = definePreset((_options?: MyPresetOptions) => {
+const presetKColor = definePreset((_options?: MyPresetOptions) => {
   return {
-    name: 'k-color-preset',
+    name: 'preset-k-color',
     theme: { colors },
-    rules: [
-      // ['text-primary', 'text-primary-500 dark:text-primary-300'],
-      // ['bg-primary', 'bg-primary-500 dark:text-primary-300'],
-    ],
+    rules: [],
     variants: [
       // ...
     ],
@@ -34,4 +31,5 @@ const kColorPreset = definePreset((_options?: MyPresetOptions) => {
   }
 })
 
-export default kColorPreset
+export default presetKColor
+export { presetKColor }
