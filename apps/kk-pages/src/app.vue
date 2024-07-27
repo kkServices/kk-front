@@ -2,7 +2,12 @@
 import { appName } from '~/constants'
 
 useHead({
-  // title: appName,
+  meta: [
+    {
+      name: 'viewport',
+      content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0',
+    },
+  ],
   titleTemplate: (productCategory) => {
     return productCategory
       ? `${productCategory} - ${appName}`
@@ -18,16 +23,9 @@ useHead({
 </template>
 
 <style>
-html,
-body,
-#__nuxt {
-  max-width: 750px;
-  margin: 0 auto;
-  padding: 0;
-}
-
-html.dark {
-  background: #222;
-  color: white;
+html {
+  background: var(--k-background-color);
+  color: var(--k-font-color);
+  transition: background 0.3s;
 }
 </style>

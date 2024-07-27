@@ -1,0 +1,20 @@
+@layer utilities {
+  .absolute-center {
+    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+  }
+  .absolute-center-x {
+    @apply absolute left-1/2 -translate-x-1/2;
+  }
+  .absolute-center-y {
+    @apply absolute top-1/2 -translate-y-1/2;
+  }
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+  .flex-center-x {
+    @apply flex justify-center;
+  }
+  .flex-center-y {
+    @apply flex items-center;
+  }
+}
