@@ -7,5 +7,5 @@ const props = withDefaults(defineProps<SkeletonProps>(), defaultProps)
 </script>
 
 <template>
-  <div :class="cn(props.class)" />
+  <div :class="cn('animate-pulse rounded-md bg-[rgba(0,0,0,0.06)]', props.class)" />
 </template>

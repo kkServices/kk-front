@@ -1,5 +1,49 @@
-:root:root {
-  //--kk-primary-color: rgb(11, 84, 162);
+$light-primary-colors: (
+  50: #f0f3fe,
+  100: #dce2fd,
+  200: #c1cdfc,
+  300: #97adf9,
+  400: #6684f4,
+  500: #425aef,
+  600: #2c3ae4,
+  700: #2427d1,
+  800: #2423aa,
+  900: #222486,
+  950: #1a1952,
+  DEFAULT: #425aef,
+);
 
-  //--color-primary-50: 222 222 222;
+$dark-primary-colors: (
+  50: #fef8ec,
+  100: #fbecca,
+  200: #f7d790,
+  300: #f2b94b,
+  400: #f0a52f,
+  500: #e98517,
+  600: #ce6211,
+  700: #ab4412,
+  800: #8b3515,
+  900: #722d15,
+  950: #421506,
+  DEFAULT: #f2b94b,
+);
+
+:root:root {
+  --k-primary-color: var(--k-primary-color-DEFAULT);
+}
+
+[data-theme='light'] {
+  @each $key, $value in $light-primary-colors {
+    --k-primary-color-#{$key}: #{$value};
+  }
+  --k-font-color: #363636;
+  --k-background-color: #f7f9fe;
+}
+
+[data-theme='dark'] {
+  @each $key, $value in $dark-primary-colors {
+    --k-primary-color-#{$key}: #{$value};
+  }
+  --k-font-color: #f7f7fa;
+  --k-background-color: #18171d;
 }

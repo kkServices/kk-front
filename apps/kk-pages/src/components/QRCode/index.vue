@@ -4,13 +4,14 @@ import type { QRCodeProps } from './props'
 import { defaultProps } from './props'
 
 const props = withDefaults(defineProps<QRCodeProps>(), defaultProps)
-const url = useQRCode(toRef(props.text), { margin: 0 })
+
+const text = toRef(props, 'text')
+
+const url = useQRCode(text, { margin: 0 })
 </script>
 
 <template>
-  <div v-if="url" class="flex-center flex-col">
-    <img class="h-full w-full" :src="url" alt="">
-  </div>
+  <img v-if="url" class="h-full w-full" :src="url" alt="">
 </template>
 
 <style scoped>

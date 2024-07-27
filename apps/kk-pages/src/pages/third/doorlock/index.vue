@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { useToast } from 'primevue/usetoast'
+
+const toast = useToast()
 definePageMeta({ layout: 'empty' })
 useHead({
   link: [
@@ -9,7 +12,7 @@ useHead({
     { name: 'description', content: '我爱上班' },
   ],
 })
-
+const currentHour = new Date().getHours()
 const route = useRoute<'third-doorlock'>()
 const id = route.query.id
 
@@ -25,22 +28,29 @@ onMounted(() => {
   if (!data.value?.data) {
     refresh()
   }
+  if (currentHour <= 10) {
+    toast.add({ severity: 'warn', summary: '勇敢滴少年呦，牛马的一天要开始了呦', life: 5000 })
+  }
 })
 </script>
 
 <template>
-  <div class="h-screen overflow-hidden flex-center flex-col gap-4">
-    <div class="h-60 w-60 flex-center">
-      <ClientOnly>
-        <QRCode class="h-full w-full" :text="data?.data" />
-        <template #fallback>
-          <Skeleton class="h-full w-full" />
-        </template>
-      </ClientOnly>
+  <div>
+    <div class="flex-center h-screen flex-col gap-4 overflow-hidden">
+      <div class="flex-center h-60 w-60">
+        <ClientOnly>
+          <QRCode class="h-60 w-60" :text="data?.data" />
+          <template #fallback>
+            <Skeleton class="h-60 w-60" />
+          </template>
+        </ClientOnly>
+      </div>
+
+      <Button type="button" label="刷新" :loading="isLoading" @click="refresh" />
+
+      <DarkToggle />
     </div>
-    <UButton class="justify-center w-32 " size="md" :loading="isLoading" :disabled="isLoading" @click="() => refresh()">
-      刷新
-    </UButton>
+    <Toast position="top-center" />
   </div>
 </template>
 
