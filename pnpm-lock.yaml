@@ -14,6 +14,9 @@ importers:
       '@kk-project/utils':
         specifier: workspace:^
         version: link:packages/utils
+      chroma-js:
+        specifier: ^2.4.2
+        version: 2.4.2
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^2.23.0
@@ -33,6 +36,9 @@ importers:
       '@iconify/json':
         specifier: ^2.2.229
         version: 2.2.229
+      '@types/chroma-js':
+        specifier: ^2.4.4
+        version: 2.4.4
       '@types/node':
         specifier: ^20.14.11
         version: 20.14.11
@@ -106,6 +112,9 @@ importers:
         specifier: ^1.9.2
         version: 1.9.2(vue@3.4.33(typescript@5.5.3))
     devDependencies:
+      '@julr/unocss-preset-heropatterns':
+        specifier: ^1.0.2
+        version: 1.0.2(unocss@0.61.5(@unocss/webpack@0.61.5(rollup@4.18.0)(webpack@5.93.0(esbuild@0.21.5)))(postcss@8.4.39)(rollup@4.18.0)(vite@5.3.4(@types/node@20.14.11)(sass@1.77.8)(terser@5.31.1)))
       '@nuxt/devtools':
         specifier: ^1.3.9
         version: 1.3.9(rollup@4.18.0)(vite@5.3.4(@types/node@20.14.11)(sass@1.77.8)(terser@5.31.1))
@@ -136,12 +145,21 @@ importers:
       '@vueuse/nuxt':
         specifier: ^10.11.0
         version: 10.11.0(magicast@0.3.4)(nuxt@3.12.4(@parcel/watcher@2.4.1)(@types/node@20.14.11)(encoding@0.1.13)(eslint@9.7.0)(ioredis@5.4.1)(magicast@0.3.4)(optionator@0.9.4)(rollup@4.18.0)(sass@1.77.8)(terser@5.31.1)(typescript@5.5.3)(vite@5.3.4(@types/node@20.14.11)(sass@1.77.8)(terser@5.31.1))(vue-tsc@2.0.26(typescript@5.5.3)))(rollup@4.18.0)(vue@3.4.33(typescript@5.5.3))
+      '@yeungkc/unocss-preset-safe-area':
+        specifier: ^0.0.8
+        version: 0.0.8
       nuxt:
         specifier: ^3.12.4
         version: 3.12.4(@parcel/watcher@2.4.1)(@types/node@20.14.11)(encoding@0.1.13)(eslint@9.7.0)(ioredis@5.4.1)(magicast@0.3.4)(optionator@0.9.4)(rollup@4.18.0)(sass@1.77.8)(terser@5.31.1)(typescript@5.5.3)(vite@5.3.4(@types/node@20.14.11)(sass@1.77.8)(terser@5.31.1))(vue-tsc@2.0.26(typescript@5.5.3))
       pinia:
         specifier: ^2.1.7
         version: 2.1.7(typescript@5.5.3)(vue@3.4.33(typescript@5.5.3))
+      unocss-preset-chroma:
+        specifier: ^0.4.2
+        version: 0.4.2
+      unocss-preset-extra:
+        specifier: ^0.5.3
+        version: 0.5.3(unocss@0.61.5(@unocss/webpack@0.61.5(rollup@4.18.0)(webpack@5.93.0(esbuild@0.21.5)))(postcss@8.4.39)(rollup@4.18.0)(vite@5.3.4(@types/node@20.14.11)(sass@1.77.8)(terser@5.31.1)))
       vue-tsc:
         specifier: ^2.0.26
         version: 2.0.26(typescript@5.5.3)
@@ -1168,6 +1186,12 @@ packages:
   '@jsdevtools/ono@7.1.3':
     resolution: {integrity: sha512-4JQNk+3mVzK3xh2rqd6RB4J46qUR19azEHBneZyTZM+c456qOrbbM/5xcR8huNCCcbVt7+UmizG6GuUvPvKUYg==}
 
+  '@julr/unocss-preset-heropatterns@1.0.2':
+    resolution: {integrity: sha512-70HqVl23auu7Qrkkk9ULszxW5BXx3pF9H1209Vc1R0fmEitBYP6zwRdj92vGgUerS9/yCtHBpA58gYroDC9OHQ==}
+    engines: {node: '>=16'}
+    peerDependencies:
+      unocss: '>= 0.31.13 < 1'
+
   '@kwsites/file-exists@1.1.1':
     resolution: {integrity: sha512-m9/5YGR18lIwxSFDwfE3oA7bWuq9kdau6ugN4H2rJeyhFQZcG9AgSHkQtSD15a8WvTgfz9aikZMrKPHvbpqFiw==}
 
@@ -1652,6 +1676,9 @@ packages:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
     engines: {node: '>=10.13.0'}
 
+  '@types/chroma-js@2.4.4':
+    resolution: {integrity: sha512-/DTccpHTaKomqussrn+ciEvfW4k6NAHzNzs/sts1TCqg333qNxOhy8TNIoQCmbGG3Tl8KdEhkGAssb1n3mTXiQ==}
+
   '@types/conventional-commits-parser@5.0.0':
     resolution: {integrity: sha512-loB369iXNmAZglwWATL+WRe+CRMmmBPtpolYzIebFaX4YA3x+BEfLqhUAV9WanycKI3TG1IMr5bMJDajDKLlUQ==}
 
@@ -1934,6 +1961,12 @@ packages:
     resolution: {integrity: sha512-VIIln/1aD9cqU95+3IVZG9U1yO7Ys6RqyqtgD5pIJ77rg57v/2sey+S2ScFx3KB24Bal3FxAgHA5CdjFpQZldA==}
     engines: {node: '>=14'}
 
+  '@unocss/core@0.50.8':
+    resolution: {integrity: sha512-rWmyeNE0Na8dJPDynLVar0X22qMHFNhO+/F2FZDpG4tubTavXJJo9uvhZr/D381kiWxt+XZ38y6EAD4UMdBqMA==}
+
+  '@unocss/core@0.52.7':
+    resolution: {integrity: sha512-dZonrlfu33SkUMsZXlsyYSM79tr2nLer/hBEU2ZaemRik2KchxIUNlZV6kX1f1k3m+gEtVQOyx1MImpgLS8PWg==}
+
   '@unocss/core@0.61.5':
     resolution: {integrity: sha512-hB8zr2rnrCzz9x8ho2SAXQiYTEjwAPMiBzpaEe2C0+CFWeL1179h9508YVyZHHAzMyZILIG9YrVAWrrMdt2/Xg==}
 
@@ -1944,6 +1977,9 @@ packages:
   '@unocss/eslint-plugin@0.61.5':
     resolution: {integrity: sha512-t/TKX3C8i2EIHRj9R7jZVEbU+tB4KShSMVAW90fUuttN3KaqujoctEyYpOYD7c5XxSelnFUspTljiH604BGyCg==}
     engines: {node: '>=14'}
+
+  '@unocss/extractor-arbitrary-variants@0.52.7':
+    resolution: {integrity: sha512-nJ4iE7nIRpoOIQfD8S58yG4qJd6AhVPEfEOf7ksX1u8xLf71rrBIojwraRXvv7aPqNdZiWvXdh/znpA/QC5b9w==}
 
   '@unocss/extractor-arbitrary-variants@0.61.5':
     resolution: {integrity: sha512-UB1EweAaJrUxv+h3n5FqoizKHrnUgUzkdmOdJTfV6xvow90ITqbUoza+L6iVMNfcrcXTx8QpDnWh6rhLRyKY+g==}
@@ -1965,6 +2001,12 @@ packages:
 
   '@unocss/preset-icons@0.61.5':
     resolution: {integrity: sha512-Fx1WZz6A7wtUDU+mt6KdjWOu9fEGG2XgzE8t8YFfUu22KjXyyef7Lto90uUNs9z+vYLevXqeDfthOZQFwNSfIg==}
+
+  '@unocss/preset-mini@0.50.8':
+    resolution: {integrity: sha512-/4sbOdyaqJMvFkw1xzo2+h6bZJHw6WCYw1mF+f0ydHzj8ruvwaj9ClDDOweW5cdrk3wzDzRZ6NPRahKqLwv6/Q==}
+
+  '@unocss/preset-mini@0.52.7':
+    resolution: {integrity: sha512-c5VRzPwyAmIBWwz2ufEboYwHGiheG+V9SCmJJLHlu/gcW5KndFsxoeJPE6nOfXVmbx4AGq/rkzV35ZXtH8Iecw==}
 
   '@unocss/preset-mini@0.61.5':
     resolution: {integrity: sha512-gVm7Z9X0krx8CK/+pKAqcVmpqzRk1+SH7bfgRxKtKhyFSxJlwpjNp1rKm3gCT0F1Tlp3d8aufYRksaXGZhs8Ow==}
@@ -2260,6 +2302,9 @@ packages:
   '@xtuc/long@4.2.2':
     resolution: {integrity: sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==}
 
+  '@yeungkc/unocss-preset-safe-area@0.0.8':
+    resolution: {integrity: sha512-7Ch5e0kX5xLy1KYYbNaV5wkjmq3D2pV3jJiGCjvCdJ/PEB+qNHsM3OrBl1BTw7I+qvnSJfRTHgJKVuLGlQFhPQ==}
+
   JSONStream@1.3.5:
     resolution: {integrity: sha512-E+iruNOY8VV9s4JEbe1aNEm6MiszPRr/UfcHMz0TQh1BXSxHK+ASV1R6W4HpjBhSeS+54PIsAMCBmwD06LLsqQ==}
     hasBin: true
@@ -2549,6 +2594,9 @@ packages:
   chownr@2.0.0:
     resolution: {integrity: sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==}
     engines: {node: '>=10'}
+
+  chroma-js@2.4.2:
+    resolution: {integrity: sha512-U9eDw6+wt7V8z5NncY2jJfZa+hUH8XEj8FQHgFJTrUFnJfXYf4Ml4adI2vXZOjqRDpFWtYVWypDfZwnJ+HIR4A==}
 
   chrome-trace-event@1.0.4:
     resolution: {integrity: sha512-rNjApaLzuwaOTjCiT8lSDdGN1APCiqkChLMJxJPWLunPAt5fy8xgU9/jNOchV84wfIxrA0lRQB7oCT8jrn/wrQ==}
@@ -5637,6 +5685,15 @@ packages:
     resolution: {integrity: sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==}
     engines: {node: '>= 10.0.0'}
 
+  unocss-preset-chroma@0.4.2:
+    resolution: {integrity: sha512-3dRB2uVio6AxwneKU5+MJejCB5ouCjhIiuTbX3wLHvM/9zOGkGTBhBLnyFBMb8q/7HVVfqbXTWFH5srdIbt8Eg==}
+    engines: {node: '>=14.18'}
+
+  unocss-preset-extra@0.5.3:
+    resolution: {integrity: sha512-rRosBmJ3S8/97o/l4J1lc3AJnSGMSD1FgDs4bvUWmrz2OQvPheuZluL8xULEd5MGwHjw4vAwYkue114pnVelzA==}
+    peerDependencies:
+      unocss: '>= 0.31.0 < 1'
+
   unocss@0.61.5:
     resolution: {integrity: sha512-BScwlqXW9KHQLKIKtXmwWmMb4Ihoryb7uIgmS+HSqmCN58eqNA73vAo3cZ97xtO+RFdauqgGKP5wD6ShQUvqnQ==}
     engines: {node: '>=14'}
@@ -7248,6 +7305,11 @@ snapshots:
 
   '@jsdevtools/ono@7.1.3': {}
 
+  '@julr/unocss-preset-heropatterns@1.0.2(unocss@0.61.5(@unocss/webpack@0.61.5(rollup@4.18.0)(webpack@5.93.0(esbuild@0.21.5)))(postcss@8.4.39)(rollup@4.18.0)(vite@5.3.4(@types/node@20.14.11)(sass@1.77.8)(terser@5.31.1)))':
+    dependencies:
+      '@unocss/preset-mini': 0.52.7
+      unocss: 0.61.5(@unocss/webpack@0.61.5(rollup@4.18.0)(webpack@5.93.0(esbuild@0.21.5)))(postcss@8.4.39)(rollup@4.18.0)(vite@5.3.4(@types/node@20.14.11)(sass@1.77.8)(terser@5.31.1))
+
   '@kwsites/file-exists@1.1.1':
     dependencies:
       debug: 4.3.5
@@ -7981,6 +8043,8 @@ snapshots:
 
   '@trysound/sax@0.2.0': {}
 
+  '@types/chroma-js@2.4.4': {}
+
   '@types/conventional-commits-parser@5.0.0':
     dependencies:
       '@types/node': 20.14.11
@@ -8374,6 +8438,10 @@ snapshots:
       '@unocss/core': 0.61.5
       unconfig: 0.3.13
 
+  '@unocss/core@0.50.8': {}
+
+  '@unocss/core@0.52.7': {}
+
   '@unocss/core@0.61.5': {}
 
   '@unocss/eslint-config@0.61.5(eslint@9.7.0)(typescript@5.5.3)':
@@ -8395,6 +8463,10 @@ snapshots:
       - eslint
       - supports-color
       - typescript
+
+  '@unocss/extractor-arbitrary-variants@0.52.7':
+    dependencies:
+      '@unocss/core': 0.52.7
 
   '@unocss/extractor-arbitrary-variants@0.61.5':
     dependencies:
@@ -8452,6 +8524,15 @@ snapshots:
       ofetch: 1.3.4
     transitivePeerDependencies:
       - supports-color
+
+  '@unocss/preset-mini@0.50.8':
+    dependencies:
+      '@unocss/core': 0.50.8
+
+  '@unocss/preset-mini@0.52.7':
+    dependencies:
+      '@unocss/core': 0.52.7
+      '@unocss/extractor-arbitrary-variants': 0.52.7
 
   '@unocss/preset-mini@0.61.5':
     dependencies:
@@ -8924,6 +9005,11 @@ snapshots:
 
   '@xtuc/long@4.2.2': {}
 
+  '@yeungkc/unocss-preset-safe-area@0.0.8':
+    dependencies:
+      '@unocss/core': 0.61.5
+      '@unocss/preset-mini': 0.61.5
+
   JSONStream@1.3.5:
     dependencies:
       jsonparse: 1.3.1
@@ -9233,6 +9319,8 @@ snapshots:
       fsevents: 2.3.3
 
   chownr@2.0.0: {}
+
+  chroma-js@2.4.2: {}
 
   chrome-trace-event@1.0.4: {}
 
@@ -12705,6 +12793,15 @@ snapshots:
   universalify@0.2.0: {}
 
   universalify@2.0.1: {}
+
+  unocss-preset-chroma@0.4.2:
+    dependencies:
+      '@unocss/preset-mini': 0.50.8
+      chroma-js: 2.4.2
+
+  unocss-preset-extra@0.5.3(unocss@0.61.5(@unocss/webpack@0.61.5(rollup@4.18.0)(webpack@5.93.0(esbuild@0.21.5)))(postcss@8.4.39)(rollup@4.18.0)(vite@5.3.4(@types/node@20.14.11)(sass@1.77.8)(terser@5.31.1))):
+    dependencies:
+      unocss: 0.61.5(@unocss/webpack@0.61.5(rollup@4.18.0)(webpack@5.93.0(esbuild@0.21.5)))(postcss@8.4.39)(rollup@4.18.0)(vite@5.3.4(@types/node@20.14.11)(sass@1.77.8)(terser@5.31.1))
 
   unocss@0.61.5(@unocss/webpack@0.61.5(rollup@4.18.0)(webpack@5.93.0(esbuild@0.21.5)))(postcss@8.4.39)(rollup@4.18.0)(vite@5.3.4(@types/node@20.14.11)(sass@1.77.8)(terser@5.31.1)):
     dependencies:

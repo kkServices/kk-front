@@ -1,18 +1,25 @@
 import { defineConfig, presetAttributify, presetIcons, presetTypography, presetUno, transformerDirectives, transformerVariantGroup } from 'unocss'
 
-import KColorPreset from './src/preset/unocss/color'
+import { presetExtra } from 'unocss-preset-extra'
+import { presetHeroPatterns } from '@julr/unocss-preset-heropatterns'
+
+import { presetChroma, presetKColor, presetKUtils } from './src/preset/unocss'
 
 export default defineConfig({
 
   theme: {},
+  rules: [],
   shortcuts: [],
   presets: [
-
     presetUno({}),
+    (presetKColor as any)({}),
     presetAttributify(),
     presetIcons({ scale: 1.2 }),
     presetTypography(),
-    (KColorPreset as any)({}),
+    presetChroma({ steps: 10 }),
+    presetHeroPatterns(),
+    presetExtra(),
+    presetKUtils({}),
   ],
   transformers: [
     transformerDirectives(),
