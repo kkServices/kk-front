@@ -4,8 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches: [master, dev]
-  pull_request:
-    branches: [master, dev]
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -48,7 +47,7 @@ jobs:
       - name: Deploy to Vercel
         run: |
           cp apps/kk-pages/env/.env.prod apps/kk-pages/.env.local
-          pnpx vercel --token ${VERCEL_TOKEN} ${{ steps.extract_branch.outputs.branch == 'master' && '--prod' || '' }}
+          pnpx vercel --token ${VERCEL_TOKEN} ${{ steps.extract_branch.outputs.branch == 'main' && '--prod' || '' }}
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
