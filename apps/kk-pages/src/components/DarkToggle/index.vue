@@ -5,7 +5,7 @@ useHead({
   meta: [{
     id: 'theme-color',
     name: 'theme-color',
-    content: () => color.value === 'dark' ? '#222222' : '#ffffff',
+    content: () => color.value === 'dark' ? '#18171d' : '#f7f9fe',
   }],
 })
 
@@ -15,7 +15,9 @@ function toggleDark() {
 </script>
 
 <template>
-  <button class="!outline-none" @click="toggleDark">
-    <div class="i-carbon-sun dark:i-carbon-moon" />
-  </button>
+  <div>
+    <button class="!outline-none" @click="toggleDark">
+      <div class="i-carbon-sun dark:i-carbon-moon" />
+    </button>
+  </div>
 </template>

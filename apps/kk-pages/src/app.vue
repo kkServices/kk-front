@@ -23,20 +23,9 @@ useHead({
 </template>
 
 <style>
-html,
-body,
-#__nuxt {
-  max-width: 750px;
-  margin: 0 auto;
-  padding: 0;
-}
 html {
-  background: #fff;
-  color: black;
+  background: var(--k-background-color);
+  color: var(--k-font-color);
   transition: background 0.3s;
-}
-html.dark {
-  background: #222;
-  color: white;
 }
 </style>
