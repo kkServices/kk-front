@@ -3,7 +3,7 @@ name: Deploy Netlify
 on:
   workflow_dispatch:
   push:
-    branches: [master, dev]
+    branches: [main, dev]
 
 jobs:
   build:
