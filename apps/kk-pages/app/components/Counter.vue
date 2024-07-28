@@ -4,14 +4,11 @@ const { count, inc, dec } = useCount()
 
 <template>
   <div class="my-3 inline-flex">
-    <button class="rounded-full p-2 btn" @click="dec()">
-      <div class="i-carbon:subtract" />
-    </button>
+    <Button icon="i-carbon:subtract" rounded aria-label="add" @click="dec()" />
     <div class="m-auto inline-block w-15 font-mono">
       {{ count }}
     </div>
-    <button class="rounded-full p-2 btn" @click="inc()">
-      <div class="i-carbon:add" />
-    </button>
+
+    <Button icon="i-carbon:add" rounded aria-label="add" @click="inc()" />
   </div>
 </template>

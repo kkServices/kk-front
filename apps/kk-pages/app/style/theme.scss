@@ -8,14 +8,14 @@
     @include apply-theme(light);
   }
 }
-[data-theme='light'] {
-  @include apply-theme(light);
-}
-
 @media (prefers-color-scheme: dark) {
   :root {
     @include apply-theme(dark);
   }
+}
+
+[data-theme='light'] {
+  @include apply-theme(light);
 }
 [data-theme='dark'] {
   @include apply-theme(dark);

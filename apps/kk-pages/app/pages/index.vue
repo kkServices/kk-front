@@ -13,7 +13,7 @@ const online = useOnline()
         </div>
       </ClientOnly>
       <template #fallback>
-        <div class="italic block">
+        <div class="block italic">
           <span class="animate-pulse">Loading...</span>
         </div>
       </template>
