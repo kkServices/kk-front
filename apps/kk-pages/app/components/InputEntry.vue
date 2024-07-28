@@ -19,9 +19,9 @@ function go() {
       @keydown.enter="go"
     >
     <div>
-      <button class="m-3 btn" :disabled="!name" @click="go">
+      <Button class="m-3" :disabled="!name" @click="go">
         GO
-      </button>
+      </Button>
     </div>
   </div>
 </template>

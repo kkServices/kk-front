@@ -3,7 +3,7 @@ import { defineConfig, presetAttributify, presetIcons, presetTypography, presetU
 import { presetExtra } from 'unocss-preset-extra'
 import { presetHeroPatterns } from '@julr/unocss-preset-heropatterns'
 
-import { presetChroma, presetKColor, presetKUtils } from './src/preset/unocss'
+import { presetChroma, presetKColor, presetKUtils } from './preset/unocss/index'
 
 export default defineConfig({
 

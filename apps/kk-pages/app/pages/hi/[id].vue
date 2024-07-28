@@ -14,9 +14,6 @@ definePageMeta({
 
 <template>
   <div>
-    <button class="rounded-full p-2 btn">
-      <i class="i-carbon-subtract " />
-    </button>
     <div class="i-twemoji-waving-hand inline-block animate-shake-x animate-duration-5000 text-4xl" />
     <h3 class="text-5xl font-500">
       Hi,
@@ -42,10 +39,10 @@ definePageMeta({
 
     <div>
       <NuxtLink
-        class="m-3 btn"
+        class="btn m-3"
         to="/"
       >
-        Back
+        <Button>Back</Button>
       </NuxtLink>
     </div>
   </div>

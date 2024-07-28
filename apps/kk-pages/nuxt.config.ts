@@ -1,10 +1,12 @@
 // noinspection ES6PreferShortImport
 
-import { appDescription } from './src/constants'
-import primevuePreset from './src/preset/primevue'
+import { appDescription } from './app/constants'
+import primevuePreset from './preset/primevue/index'
 
 export default defineNuxtConfig({
-  srcDir: 'src',
+  future: {
+    compatibilityVersion: 4,
+  },
   imports: {
     dirs: ['composables/**'],
   },
