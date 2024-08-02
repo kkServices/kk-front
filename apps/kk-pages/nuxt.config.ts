@@ -117,6 +117,14 @@ export default defineNuxtConfig({
       'autoprefixer': {},
     },
   },
+  routeRules: {
+    '/donate': {
+      redirect: {
+        to: '/donate/default',
+        statusCode: 302,
+      },
+    },
+  },
   primevue: {
     components: {
       // prefix: 'Pv',

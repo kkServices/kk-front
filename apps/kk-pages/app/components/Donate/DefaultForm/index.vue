@@ -3,7 +3,6 @@ import { toTypedSchema } from '@vee-validate/zod'
 import { z } from 'zod'
 
 const [visible, setVisible] = useToggle(false)
-
 const moneySelect = ref<number | string>()
 const moneyList = ref([
   { name: '1.00', value: 1 },
@@ -56,45 +55,38 @@ function randomMessage() {
 
 <template>
   <div>
-    <div class="grid grid-cols-12 mx-auto box-border max-w-[1440px]">
-      <div
-        class="col-span-10 col-start-2 mt-6 box-border rounded-2 bg-[var(--k-card-bg-color)] px-6 py-10 shadow-xl md:(col-span-8 col-start-3) sm:(col-span-10 col-start-2)"
-      >
-        <VeeForm class="flex flex-col gap-2" @submit="(onSubmit as any)">
-          <div class="flex flex-col gap-2">
-            <label class="block text-lg font-bold" for="money">金额</label>
-            <Select v-model="moneySelect" :options="moneyList" option-label="name" option-value="value" placeholder="选择...." class="w-full" />
-            <InputNumber v-show="isShowCustomInputNumber" v-model="money" name="money" :min-fraction-digits="0" :max-fraction-digits="2" />
+    <VeeForm class="flex flex-col gap-2" @submit="(onSubmit as any)">
+      <div class="flex flex-col gap-2">
+        <label class="block text-lg font-bold" for="money">金额</label>
+        <Select v-model="moneySelect" :options="moneyList" option-label="name" option-value="value" placeholder="选择...." class="w-full" />
+        <InputNumber v-show="isShowCustomInputNumber" v-model="money" name="money" :min-fraction-digits="0" :max-fraction-digits="2" />
 
-            <p class="text-red-500">
-              {{ errors.money }}
-            </p>
-          </div>
-
-          <div class="flex flex-col gap-2">
-            <label class="block text-lg font-bold" for="name">
-              留言
-              <Button label="整两句" class="leading-none" outlined @click="randomMessage" />
-            </label>
-            <Textarea v-model="message" :class="{ 'p-invalid': errors.message }" name="message" rows="2" />
-            <p class="text-red-500">
-              {{ errors.message }}
-            </p>
-          </div>
-
-          <div class="flex flex-col gap-2">
-            <label class="block text-lg font-bold" for="name">邮箱</label>
-            <InputText v-model="email" :class="{ 'p-invalid': errors.email }" placeholder="用于头像显示" class="w-full" />
-            <p class="text-red-500">
-              {{ errors.email }}
-            </p>
-          </div>
-
-          <Button class="mt-4" type="submit" label="submit" />
-        </VeeForm>
+        <p class="text-red-500">
+          {{ errors.money }}
+        </p>
       </div>
-    </div>
 
+      <div class="flex flex-col gap-2">
+        <label class="block text-lg font-bold" for="name">
+          留言
+          <Button label="整两句" class="leading-none" outlined @click="randomMessage" />
+        </label>
+        <Textarea v-model="message" :class="{ 'p-invalid': errors.message }" name="message" rows="2" />
+        <p class="text-red-500">
+          {{ errors.message }}
+        </p>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label class="block text-lg font-bold" for="name">邮箱</label>
+        <InputText v-model="email" :class="{ 'p-invalid': errors.email }" placeholder="用于头像显示" class="w-full" />
+        <p class="text-red-500">
+          {{ errors.email }}
+        </p>
+      </div>
+
+      <Button class="mt-4" type="submit" label="submit" />
+    </VeeForm>
     <Dialog v-model:visible="visible" modal header="Edit Profile" :style="{ width: '25rem' }">
       <span class="text-surface-500 dark:text-surface-400 mb-8 block">Update your information.</span>
       <div class="mb-4 flex items-center gap-4">
@@ -112,7 +104,3 @@ function randomMessage() {
     </Dialog>
   </div>
 </template>
-
-<style scoped>
-
-</style>
