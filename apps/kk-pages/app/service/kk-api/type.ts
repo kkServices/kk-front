@@ -2,21 +2,14 @@ export type APIResponse<K extends keyof API> = API[K]['Res']
 export type APIRequest<K extends keyof API> = API[K] extends { Req: infer Req } ? Req : undefined
 
 export interface API {
-  '/member/detail': {
-    // Req?: {
-    //   a: 1
+  '/company/jxk/doorlock': {
+    // Req: {
+    //   userLinglingid: string
     // }
     Res: {
-      newMember: number
+      result: string
+      status: string
     }
   }
 
-  '/ssd/sds': {
-    Req: {
-      a: number
-    }
-    Res: {
-      a: number
-    }
-  }
 }

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 definePageMeta({
-  layout: 'header',
   title: 'lazzz',
 })
 </script>

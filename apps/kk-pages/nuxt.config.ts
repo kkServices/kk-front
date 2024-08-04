@@ -1,12 +1,13 @@
 // noinspection ES6PreferShortImport
 
-import { appDescription } from './app/constants'
+import { appDescription } from './constants'
 import primevuePreset from './preset/primevue/index'
 
 export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
+
   imports: {
     dirs: ['composables/**'],
   },
@@ -33,6 +34,7 @@ export default defineNuxtConfig({
     payloadExtraction: false,
     renderJsonPayloads: true,
     typedPages: true,
+    componentIslands: true,
   },
 
   css: [
@@ -112,7 +114,7 @@ export default defineNuxtConfig({
           darkModeSelector: '[date-theme="dark"]',
         },
       },
-      ripple: true,
+      ripple: false,
     },
   },
   compatibilityDate: '2024-07-20',
