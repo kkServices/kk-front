@@ -16,13 +16,9 @@ useHead({
 })
 const currentHour = new Date().getHours()
 
-const { status, data, refresh, error } = await useFetch<{ data: string }>(
-  'https://api.antmoe.com/api/open/company/soho',
-  {
-    params: { userLinglingid: id },
-    server: false,
-  },
-)
+const { data, refresh, error, status } = useRequest('/company/jxk/doorlock', {
+  params: { userLinglingid: id },
+})
 const isLoading = computed(() => status.value === 'pending' || status.value === 'idle')
 
 onMounted(() => {
@@ -47,7 +43,7 @@ watchEffect(() => {
 
       <div v-else class="h-60 w-60 flex-center">
         <ClientOnly>
-          <QRCode class="h-60 w-60 cursor-pointer" :loading="isLoading" :text="data?.data" @click="() => refresh()" />
+          <QRCode class="h-60 w-60 cursor-pointer" :loading="isLoading" :text="data?.result" @click="() => refresh()" />
           <template #fallback>
             <K-Skeleton class="h-60 w-60" />
           </template>
