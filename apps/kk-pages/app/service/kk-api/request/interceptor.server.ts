@@ -46,7 +46,7 @@ function onResponseServer<R>(nuxtApp: NuxtApp) {
         await nuxtApp.runWithContext(() => navigateTo('/login'))
       }
 
-      throw createError({ statusCode: data.code, message: data.message, data })
+      return Promise.reject(createError({ statusCode: data.code, message: data.message, data }))
     }
 
     if (options._duration > 1000) {
@@ -73,4 +73,9 @@ function onResponseErrorServer<R>(context: FetchContext & { response: FetchRespo
   }
 }
 
-export { onRequestServer, onResponseServer, onResponseErrorServer }
+function onRequestErrorServer(context: FetchContext & { error: Error }) {
+  logger.error('【HTTP】请求异常', context)
+  return Promise.reject(context)
+}
+
+export { onRequestServer, onResponseServer, onResponseErrorServer, onRequestErrorServer }

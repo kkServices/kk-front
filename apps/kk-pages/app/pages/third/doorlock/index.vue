@@ -29,7 +29,11 @@ onMounted(() => {
 
 watchEffect(() => {
   if (error.value) {
-    toast.add({ severity: 'error', summary: `发生了一小点子错误:${error.value.statusCode}`, life: 5000 })
+    if (import.meta.client) {
+      setTimeout(() => {
+        toast.add({ styleClass: 'error-toast', severity: 'error', summary: `发生了一小点子错误`, life: 2000, closable: false })
+      }, 0)
+    }
   }
 })
 </script>

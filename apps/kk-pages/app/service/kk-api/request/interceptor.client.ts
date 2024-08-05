@@ -31,7 +31,7 @@ async function onResponseClient<R = RequestResult<unknown>>(context: FetchContex
       await router.push('/login')
     }
 
-    throw createError({ statusCode: data.code, message: data.message || statusCodeError(data.code), data })
+    return Promise.reject(createError({ statusCode: data.code, message: data.message || statusCodeError(data.code), data }))
   }
 
   if (options.meta?.isTransformResponse) {
@@ -47,4 +47,8 @@ async function onResponseErrorClient<R>(context: FetchContext & { response: Fetc
   }
 }
 
-export { onRequestClient, onResponseClient, onResponseErrorClient }
+function onRequestErrorClient(context: FetchContext & { error: Error }) {
+  return Promise.reject(context)
+}
+
+export { onRequestClient, onResponseClient, onResponseErrorClient, onRequestErrorClient }
