@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const { data, execute, status } = await useRequest(
-  '/member/detail',
+const { data, execute } = await useRequest(
+  '/user/query',
   { immediate: false, meta: { ignoreLogin: true } },
 )
 </script>
@@ -17,9 +17,7 @@ const { data, execute, status } = await useRequest(
           {{ data }}
         </div>
         <div>
-          <van-button type="primary" :loading="status === 'pending'" @click="execute">
-            request
-          </van-button>
+          <Button label="request" @click="() => execute()" />
         </div>
       </div>
     </template>

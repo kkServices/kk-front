@@ -22,9 +22,17 @@ async function onResponseClient<R = RequestResult<unknown>>(context: FetchContex
   const data = response._data as RequestResult<R>
   const isSuccess = data.success
   const router = useRouter()
+  const { $toast } = useNuxtApp()
   if (!isSuccess) {
     if (data.message && options.meta?.isToastError) {
-      console.error(data.message)
+      $toast.error(data.message, {
+        toastId: 'interceptor-401',
+        position: 'top-center',
+        closeButton: false,
+        hideProgressBar: true,
+        autoClose: false,
+        theme: 'auto',
+      })
       // showToast(data.datas.error)
     }
     if (data.code === 401 && !options.meta?.ignoreLogin) {
@@ -43,11 +51,13 @@ async function onResponseErrorClient<R>(context: FetchContext & { response: Fetc
   const statusCode = response.status
   const data = response._data
   if (statusCode < 200 || statusCode >= 300) {
-    throw createError({ statusCode, message: statusCodeError(statusCode), data })
+    return Promise.reject(createError({ statusCode, message: statusCodeError(statusCode), data }))
   }
 }
 
 function onRequestErrorClient(context: FetchContext & { error: Error }) {
+  const { $toast } = useNuxtApp()
+  $toast.error(context.error.message)
   return Promise.reject(context)
 }
 
