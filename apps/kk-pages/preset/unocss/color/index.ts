@@ -14,7 +14,7 @@ Object.values(colors).forEach((color) => {
     Object.keys(color).forEach((key) => {
       const short = +key / 100
       if (short === Math.round(short))
-        color[short] = color[key]
+        color[short] = color[key] as string
     })
   }
 })
@@ -24,10 +24,10 @@ const presetKColor = definePreset((_options?: MyPresetOptions) => {
     name: 'preset-k-color',
     theme: { colors },
     rules: [],
-    variants: [
-      // ...
+    variants: [],
+    shortcuts: [
+      ['bg-card', 'bg-[var(--k-card-bg-color)]'],
     ],
-    // it supports most of the configuration you could have in the root config
   }
 })
 

@@ -18,6 +18,20 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxt/eslint',
     '@primevue/nuxt-module',
+    [
+      '@vee-validate/nuxt',
+      {
+        // disable or enable auto imports
+        autoImports: true,
+        // Use different names for components
+        componentNames: {
+          Form: 'VeeForm',
+          Field: 'VeeField',
+          FieldArray: 'VeeFieldArray',
+          ErrorMessage: 'VeeErrorMessage',
+        },
+      },
+    ],
     '@nuxtjs/tailwindcss',
   ],
 
@@ -100,6 +114,14 @@ export default defineNuxtConfig({
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
+    },
+  },
+  routeRules: {
+    '/donate': {
+      redirect: {
+        to: '/donate/default',
+        statusCode: 302,
+      },
     },
   },
   primevue: {
