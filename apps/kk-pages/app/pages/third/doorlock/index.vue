@@ -40,16 +40,16 @@ watchEffect(() => {
 
 <template>
   <div>
-    <div class="h-screen flex-center flex-col gap-4 overflow-hidden">
+    <div class="h-screen flex-col gap-4 overflow-hidden flex-center">
       <template v-if="error">
-        <K-Skeleton class="h-60 w-60" />
+        <K-Skeleton class="size-60" />
       </template>
 
-      <div v-else class="h-60 w-60 flex-center">
+      <div v-else class="size-60 flex-center">
         <ClientOnly>
-          <QRCode class="h-60 w-60 cursor-pointer" :loading="isLoading" :text="data?.result" @click="() => refresh()" />
+          <QRCode class="size-60 cursor-pointer" :loading="isLoading" :text="data?.result" @click="() => refresh()" />
           <template #fallback>
-            <K-Skeleton class="h-60 w-60" />
+            <K-Skeleton class="size-60" />
           </template>
         </ClientOnly>
       </div>

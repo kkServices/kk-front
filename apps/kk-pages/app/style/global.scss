@@ -3,8 +3,8 @@ html {
 }
 
 html[data-theme='light'] {
-  @apply bg-hero-i-like-food-#ebebeb:30;
+  @apply pattern-i-like-food-pattern-light/30;
 }
 html[data-theme='dark'] {
-  @apply bg-hero-i-like-food-#2a2a2a:30;
+  @apply pattern-i-like-food-pattern-dark/30;
 }

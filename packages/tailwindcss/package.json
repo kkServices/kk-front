@@ -1,0 +1,22 @@
+{
+  "name": "@kk-project/tailwindcss",
+  "type": "module",
+  "private": true,
+  "exports": {
+    "./index": "./index.ts"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "src/*"
+      ]
+    }
+  },
+  "scripts": {
+    "test": "vitest",
+    "clean": "rimraf node_modules",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {}
+}

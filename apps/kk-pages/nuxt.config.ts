@@ -1,7 +1,6 @@
 // noinspection ES6PreferShortImport
 
 import { appDescription } from './constants'
-import primevuePreset from './preset/primevue/index'
 
 export default defineNuxtConfig({
   future: {
@@ -14,11 +13,12 @@ export default defineNuxtConfig({
 
   modules: [
     '@vueuse/nuxt',
-    '@unocss/nuxt',
+    // '@unocss/nuxt',
     '@pinia/nuxt',
     '@nuxtjs/color-mode',
     '@nuxt/eslint',
     '@primevue/nuxt-module',
+    '@nuxtjs/tailwindcss',
   ],
 
   runtimeConfig: {
@@ -38,7 +38,6 @@ export default defineNuxtConfig({
   },
 
   css: [
-    '@unocss/reset/tailwind.css',
     '~/style/index.scss',
   ],
 
@@ -99,8 +98,8 @@ export default defineNuxtConfig({
 
   postcss: {
     plugins: {
-      '@unocss/postcss': {},
-      'autoprefixer': {},
+      tailwindcss: {},
+      autoprefixer: {},
     },
   },
   primevue: {
@@ -108,14 +107,16 @@ export default defineNuxtConfig({
       // prefix: 'Pv',
     },
     options: {
-      theme: {
-        preset: primevuePreset,
-        options: {
-          darkModeSelector: '[date-theme="dark"]',
-        },
-      },
+      unstyled: true,
+      // theme: {
+      //   preset: primevuePreset,
+      //   options: {
+      //     darkModeSelector: '[date-theme="dark"]',
+      //   },
+      // },
       ripple: false,
     },
+    importPT: { as: 'Aura', from: '~~/preset/primevue/preset/aura/index.js' },
   },
   compatibilityDate: '2024-07-20',
 })
