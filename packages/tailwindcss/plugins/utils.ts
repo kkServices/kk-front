@@ -35,6 +35,7 @@ export default plugin(({ addUtilities, matchUtilities, theme }) => {
       '.flex-row-center': { display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' },
       '.flex-center-x': { display: 'flex', justifyContent: 'center' },
       '.flex-center-y': { display: 'flex', alignItems: 'center' },
+      '.bg-card': { backgroundColor: 'var(--k-card-bg-color)' },
     },
   ])
 })

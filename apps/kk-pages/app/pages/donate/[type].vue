@@ -11,13 +11,15 @@ const AsyncComponent = defineAsyncComponent(() => {
 </script>
 
 <template>
-  <div class="grid grid-cols-12 mx-auto box-border max-w-[1440px]">
+  <div class="mx-auto box-border grid max-w-[1440px] grid-cols-12 px-6 md:px-0">
     <div
-      class="col-span-10 col-start-2 mt-6 box-border rounded-2 bg-card px-6 py-10 shadow-xl md:(col-span-8 col-start-3) sm:(col-span-10 col-start-2)"
+      class=" col-span-12 mt-6 box-border rounded-lg px-6 py-10 shadow-xl bg-card sm:col-span-12 md:col-span-6 md:col-start-4"
     >
       <suspense>
         <component :is="AsyncComponent" />
       </suspense>
+
+      <DonatePayList class="mt-5" />
     </div>
   </div>
 </template>

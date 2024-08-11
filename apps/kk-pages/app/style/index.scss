@@ -1,3 +1,4 @@
 @import './theme';
-@import './global';
 @import './tailwindcss/index.scss';
+@import './override/vue3-toastify';
+@import './global';

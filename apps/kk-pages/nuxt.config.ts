@@ -126,7 +126,7 @@ export default defineNuxtConfig({
   },
   primevue: {
     components: {
-      // prefix: 'Pv',
+      // prefix: 'Prime',
     },
     options: {
       unstyled: true,
