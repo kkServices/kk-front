@@ -1,8 +1,8 @@
 @import '@/style/tailwindcss/color/index';
 :root {
   --toastify-toast-min-height: 52px;
-  --toastify-text-color-light: var(--k-font-color);
-  --toastify-text-color-dark: var(--k-font-color);
+  --toastify-text-color-light: var(--p-text-color);
+  --toastify-text-color-dark: var(--p-text-color);
   --toastify-color-progress-dark: linear-gradient(
     to right,
     #4cd964,
@@ -62,11 +62,7 @@
       #{$yellow-500},
       transparent 84%
     );
-    --toastify-color-error: color-mix(
-      in srgb,
-      var(#{$red-500}),
-      transparent 84%
-    );
+    --toastify-color-error: color-mix(in srgb, #{$red-500}, transparent 84%);
 
     --toastify-text-color-info: #{$blue-600};
     --toastify-text-color-success: #{$green-600};
@@ -83,7 +79,7 @@
 [data-theme='light'] {
   --toastify-color-light: #fff;
   --toastify-color-dark: #fff;
-  --toastify-color-info: color-mix(in srgb, #{#{$blue-50}}, transparent 5%);
+  --toastify-color-info: color-mix(in srgb, #{$blue-50}, transparent 5%);
   --toastify-color-success: color-mix(in srgb, #{$green-50}, transparent 5%);
   --toastify-color-warning: color-mix(in srgb, #{$yellow-50}, transparent 5%);
   --toastify-color-error: color-mix(in srgb, #{$red-50}, transparent 5%);
@@ -122,10 +118,10 @@
   }
   &__close-button,
   &__close-button--dark {
-    color: var(--k-font-color);
+    color: var(--p-text-color);
   }
   &__toast-theme--colored &__close-button {
-    color: var(--k-font-resver-color);
+    color: var(--p-text-resver-color);
   }
   &__toast-container--top-center,
   &__toast-container--bottom-center {

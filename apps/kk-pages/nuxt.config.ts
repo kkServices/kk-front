@@ -112,8 +112,9 @@ export default defineNuxtConfig({
 
   postcss: {
     plugins: {
-      tailwindcss: {},
-      autoprefixer: {},
+      'tailwindcss': {},
+      'autoprefixer': {},
+      '@csstools/postcss-color-mix-function': {},
     },
   },
   routeRules: {

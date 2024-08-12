@@ -47,9 +47,9 @@ function onClick() {
 
 <template>
   <div>
-    <PrimeButton @click="onClick">
+    <Button @click="onClick">
       toast info
-    </PrimeButton>
+    </Button>
   </div>
 </template>
 
