@@ -117,14 +117,7 @@ export default defineNuxtConfig({
       '@csstools/postcss-color-mix-function': {},
     },
   },
-  routeRules: {
-    '/donate': {
-      redirect: {
-        to: '/donate/default',
-        statusCode: 302,
-      },
-    },
-  },
+  routeRules: {},
   primevue: {
     components: {
       // prefix: 'Prime',

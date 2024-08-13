@@ -7,9 +7,6 @@ import {
 } from '@kk-project/tailwindcss/index'
 /**
  * 生成从 min 到 max 的间距
- * @param {number} min
- * @param {number} max
- * @returns {Record<string, string>} 间距对象 { '1': '0.25rem', '1.5': '0.375rem', ... }
  */
 function generateSpacing(min: number, max: number) {
   /** @type {Record<string, string>} */
