@@ -13,7 +13,7 @@ function go() {
     <input
       id="input"
       v-model="name"
-      class="mt-5 w-[350px] border border-gray-200 rounded bg-transparent px-4 py-2 text-center outline-none dark:border-gray-700 active:outline-none focus:outline-none"
+      class="mt-5 w-[350px] rounded border border-gray-200 bg-transparent px-4 py-2 text-center outline-none focus:outline-none active:outline-none dark:border-gray-700"
       placeholder="What's your name?"
       type="text" autocomplete="off"
       @keydown.enter="go"

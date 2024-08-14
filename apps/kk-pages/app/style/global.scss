@@ -1,10 +1,10 @@
 html {
-  @apply bg-[var(--k-background-color)] text-[var(--k-font-color)] transition-[background] duration-300;
+  @apply bg-[var(--k-background-color)] text-[var(--p-text-color)] transition-[background] duration-300;
 }
 
 html[data-theme='light'] {
-  @apply bg-hero-i-like-food-#ebebeb:30;
+  @apply pattern-i-like-food-pattern-light/30;
 }
 html[data-theme='dark'] {
-  @apply bg-hero-i-like-food-#2a2a2a:30;
+  @apply pattern-i-like-food-pattern-dark/30;
 }

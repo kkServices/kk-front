@@ -4,16 +4,19 @@
 <template>
   <div>
     <p class="text-primary">
-      一段文字
+      一段文字 text-primary
+    </p>
+    <p class="text-red-500">
+      一段文字 text-red
     </p>
     <div>
-      图标：<div class="i-heroicons-light-bulb" />
+      图标：<div class="icon-[heroicons--light-bulb]" />
     </div>
     <div class="flex gap-4">
-      <div class="h-60 w-60 rounded-full chroma-linear-rgb-#a18cd1-#fbc2eb" />
-      <div class="h-60 w-60 rounded-full chroma-stops-rgb-#a18cd1-#fbc2eb-#f1f1f1" />
-      <div class="chroma-shape-contour h-60 w-60 rounded-full chroma-linear-rgb-#a18cd1-#fbc2eb" />
-      <div class="linear h-60 w-60 rounded-full" />
+      <div class="chroma-linear-rgb-#a18cd1-#fbc2eb size-60 rounded-full" />
+      <div class="chroma-stops-rgb-#a18cd1-#fbc2eb-#f1f1f1 size-60 rounded-full" />
+      <div class="chroma-shape-contour chroma-linear-rgb-#a18cd1-#fbc2eb size-60 rounded-full" />
+      <div class="linear size-60 rounded-full" />
       <!--      <div class="bg-hero-floating-cogs-#ebebeb h-60 w-60" /> -->
     </div>
   </div>

@@ -1,5 +1,18 @@
 import type { FetchOptions } from 'ofetch'
 
+export enum ERROR_SHOW_TYPE {
+  // 不提示
+  SILENT = 0,
+  // 警告消息
+  WARN_MESSAGE = 1,
+  // 错误消息
+  ERROR_MESSAGE = 2,
+  // 通知消息
+  NOTIFICATION = 3,
+  // 页面消息
+  REDIRECT = 9,
+}
+
 interface _FetchOptions extends FetchOptions {
   _startTime?: number
   _endTime?: number
@@ -27,7 +40,7 @@ export interface RequestResultSuccess<T = unknown> {
 export interface RequestResultError {
   code: number
   data: null
-  errorShowType: number
+  errorShowType: ERROR_SHOW_TYPE
   message: string
   requestId: string
   success: false

@@ -3,7 +3,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "nuxi dev --dotenv .env.local --host",
+    "dev": "nuxi dev --dotenv .env.local --host --p 3001",
     "build": "nuxi build --dotenv .env.local",
     "generate": "nuxi generate",
     "prepare": "nuxi prepare",
@@ -16,30 +16,27 @@
     "up": "taze major -I"
   },
   "dependencies": {
-    "@primevue/themes": "^4.0.2",
-    "@vueuse/integrations": "^10.11.0",
+    "@vee-validate/nuxt": "^4.13.2",
+    "@vee-validate/zod": "^4.13.2",
+    "@vueuse/integrations": "^10.11.1",
     "ofetch": "^1.3.4",
-    "primevue": "^4.0.2",
-    "qrcode": "^1.5.3",
-    "radix-vue": "^1.9.2"
+    "primevue": "^4.0.4",
+    "qrcode": "^1.5.4",
+    "radix-vue": "^1.9.3",
+    "vue3-toastify": "^0.2.2",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@julr/unocss-preset-heropatterns": "^1.0.2",
     "@nuxt/devtools": "^1.3.9",
-    "@nuxt/eslint": "^0.4.0",
+    "@nuxt/eslint": "^0.5.0",
     "@nuxtjs/color-mode": "^3.4.2",
-    "@pinia/nuxt": "^0.5.2",
-    "@primevue/nuxt-module": "^4.0.2",
+    "@nuxtjs/tailwindcss": "^6.12.1",
+    "@pinia/nuxt": "^0.5.3",
+    "@primevue/nuxt-module": "^4.0.4",
     "@types/qrcode": "^1.5.5",
-    "@unocss/eslint-config": "^0.61.6",
-    "@unocss/nuxt": "^0.61.6",
-    "@unocss/postcss": "^0.61.6",
-    "@vueuse/nuxt": "^10.11.0",
-    "@yeungkc/unocss-preset-safe-area": "^0.0.8",
+    "@vueuse/nuxt": "^10.11.1",
     "nuxt": "^3.12.4",
-    "pinia": "^2.2.0",
-    "unocss-preset-chroma": "^0.4.2",
-    "unocss-preset-extra": "^0.5.3",
+    "pinia": "^2.2.1",
     "vue-tsc": "^2.0.29"
   }
 }

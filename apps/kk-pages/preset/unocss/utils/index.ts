@@ -12,10 +12,7 @@ const presetKUtils = definePreset((_options?: MyPresetOptions) => {
       ['flex-center-x', 'flex items-center'],
       ['flex-center-y', 'flex justify-center'],
     ],
-    variants: [
-      // ...
-    ],
-    // it supports most of the configuration you could have in the root config
+    variants: [],
   }
 })
 

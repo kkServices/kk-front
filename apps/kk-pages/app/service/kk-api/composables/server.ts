@@ -13,7 +13,7 @@ interface UseFetchOptionsWithMeta<T> extends UseFetchOptions<T> {
  */
 export function useRequest<K extends keyof API, T = APIResponse<K>>(
   url: K,
-  options: UseFetchOptionsWithMeta<T> & { body?: APIRequest<K> } = {},
+  options: UseFetchOptionsWithMeta<T> & { body?: APIRequest<K> | any } = {},
 ) {
   return useFetch(url, {
     ...options,

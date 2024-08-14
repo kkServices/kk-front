@@ -8,7 +8,7 @@ const online = useOnline()
     <Suspense>
       <ClientOnly>
         <PageView v-if="online" />
-        <div v-else class="text-gray:80">
+        <div v-else class="text-gray-500/80">
           You're offline
         </div>
       </ClientOnly>

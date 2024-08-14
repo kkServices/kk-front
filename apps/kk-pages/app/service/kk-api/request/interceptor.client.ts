@@ -1,11 +1,37 @@
 import type { FetchContext, FetchResponse } from 'ofetch'
 import { statusCodeError } from './errorHandler'
 import type { FetchOptionsClient, MetaClient, RequestResult } from './type'
+import { ERROR_SHOW_TYPE } from './type'
 
 const defaultMeta: Required<MetaClient> = {
   isTransformResponse: true,
   ignoreLogin: false,
   isToastError: true,
+}
+
+function showToast(message: string, errorShowType: ERROR_SHOW_TYPE, toastId?: string) {
+  const { $toast } = useNuxtApp()
+  if (![1, 2, 3].includes(errorShowType))
+    return
+  let type: 'error' | 'info' | 'warning' = 'error'
+  switch (errorShowType) {
+    case 2:
+      type = 'error'
+      break
+    case 1:
+      type = 'warning'
+      break
+    case 3:
+      type = 'info'
+      break
+  }
+
+  $toast(message, {
+    type,
+    toastId,
+    autoClose: 5000,
+    position: 'top-right',
+  })
 }
 
 function onRequestClient({ options: _options }: FetchContext) {
@@ -24,14 +50,14 @@ async function onResponseClient<R = RequestResult<unknown>>(context: FetchContex
   const router = useRouter()
   if (!isSuccess) {
     if (data.message && options.meta?.isToastError) {
-      console.error(data.message)
-      // showToast(data.datas.error)
+      showToast(data.message, data.errorShowType)
     }
     if (data.code === 401 && !options.meta?.ignoreLogin) {
+      showToast(data.message, data.errorShowType, 'interceptor-401')
       await router.push('/login')
     }
 
-    throw createError({ statusCode: data.code, message: data.message || statusCodeError(data.code), data })
+    return Promise.reject(createError({ statusCode: data.code, message: data.message || statusCodeError(data.code), data }))
   }
 
   if (options.meta?.isTransformResponse) {
@@ -43,8 +69,14 @@ async function onResponseErrorClient<R>(context: FetchContext & { response: Fetc
   const statusCode = response.status
   const data = response._data
   if (statusCode < 200 || statusCode >= 300) {
-    throw createError({ statusCode, message: statusCodeError(statusCode), data })
+    showToast(statusCodeError(statusCode), ERROR_SHOW_TYPE.ERROR_MESSAGE)
+    return Promise.reject(createError({ statusCode, message: statusCodeError(statusCode), data }))
   }
 }
 
-export { onRequestClient, onResponseClient, onResponseErrorClient }
+function onRequestErrorClient(context: FetchContext & { error: Error }) {
+  showToast(context.error.message, ERROR_SHOW_TYPE.ERROR_MESSAGE)
+  return Promise.reject(context)
+}
+
+export { onRequestClient, onResponseClient, onResponseErrorClient, onRequestErrorClient }

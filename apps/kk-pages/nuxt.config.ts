@@ -1,7 +1,6 @@
 // noinspection ES6PreferShortImport
 
 import { appDescription } from './constants'
-import primevuePreset from './preset/primevue/index'
 
 export default defineNuxtConfig({
   future: {
@@ -14,11 +13,26 @@ export default defineNuxtConfig({
 
   modules: [
     '@vueuse/nuxt',
-    '@unocss/nuxt',
+    // '@unocss/nuxt',
     '@pinia/nuxt',
     '@nuxtjs/color-mode',
     '@nuxt/eslint',
     '@primevue/nuxt-module',
+    [
+      '@vee-validate/nuxt',
+      {
+        // disable or enable auto imports
+        autoImports: true,
+        // Use different names for components
+        componentNames: {
+          Form: 'VeeForm',
+          Field: 'VeeField',
+          FieldArray: 'VeeFieldArray',
+          ErrorMessage: 'VeeErrorMessage',
+        },
+      },
+    ],
+    '@nuxtjs/tailwindcss',
   ],
 
   runtimeConfig: {
@@ -38,7 +52,6 @@ export default defineNuxtConfig({
   },
 
   css: [
-    '@unocss/reset/tailwind.css',
     '~/style/index.scss',
   ],
 
@@ -99,23 +112,27 @@ export default defineNuxtConfig({
 
   postcss: {
     plugins: {
-      '@unocss/postcss': {},
+      'tailwindcss': {},
       'autoprefixer': {},
+      '@csstools/postcss-color-mix-function': {},
     },
   },
+  routeRules: {},
   primevue: {
     components: {
-      // prefix: 'Pv',
+      // prefix: 'Prime',
     },
     options: {
-      theme: {
-        preset: primevuePreset,
-        options: {
-          darkModeSelector: '[date-theme="dark"]',
-        },
-      },
+      unstyled: true,
+      // theme: {
+      //   preset: primevuePreset,
+      //   options: {
+      //     darkModeSelector: '[date-theme="dark"]',
+      //   },
+      // },
       ripple: false,
     },
+    importPT: { as: 'Aura', from: '~~/preset/primevue/preset/aura/index.js' },
   },
   compatibilityDate: '2024-07-20',
 })
