@@ -6,6 +6,9 @@ export interface DonatePayModalProps {
   // visible: boolean
   qrCode: string | undefined
   outTradeNo: string | undefined
+
+  email?: string | null
+  message?: string
 }
 
 export const defaultProps = {

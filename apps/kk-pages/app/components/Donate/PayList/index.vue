@@ -31,6 +31,9 @@ const totalAmount = computed(() => {
       <p class="mt-4 flex items-center text-base">
         小记：<i class="icon-[f7--money-yen]" /> {{ totalAmount }}
       </p>
+      <p class="text-xs text-gray-300 dark:text-gray-600">
+        仅包含¥1元以上的记录
+      </p>
     </div>
   </div>
 </template>
