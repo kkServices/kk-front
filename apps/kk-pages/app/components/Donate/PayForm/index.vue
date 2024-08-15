@@ -7,7 +7,7 @@ import type { DonatePayFormProps } from './props'
 const props = withDefaults(defineProps<DonatePayFormProps>(), defaultProps)
 const emits = defineEmits(['submit'])
 const moneySelect = ref<number | string | null>()
-// const moneyOptions = ref(_moneyOptions)
+const getRecaptchaTokenIng = ref(false)
 const isShowCustomInputNumber = computed(() => moneySelect.value === 'custom')
 
 const { errors, defineField, handleSubmit, setFieldValue, resetField, resetForm } = useForm({
@@ -31,11 +31,14 @@ function randomMessage() {
   setFieldValue('message', messages[randomIndex])
 }
 function recaptchaToken() {
+  getRecaptchaTokenIng.value = true
   return new Promise((resolve, reject) => {
     (window as any).grecaptcha.execute('6LcYZCQqAAAAAO9bjJLxXZciH5Uu_Hm6DfFZpZgt', { action: 'submit' }).then((token: string) => {
       resolve(token)
+      getRecaptchaTokenIng.value = false
     }).catch((err: Error) => {
       reject(err)
+      getRecaptchaTokenIng.value = false
     })
   })
 }
@@ -95,6 +98,6 @@ defineExpose({ reset })
       </p>
     </div>
 
-    <Button :loading="props.loading" class="mt-4" type="submit" label="立即投喂" />
+    <Button :loading="props.loading || getRecaptchaTokenIng" class="mt-4" type="submit" label="立即投喂" />
   </VeeForm>
 </template>

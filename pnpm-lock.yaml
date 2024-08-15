@@ -57,9 +57,6 @@ importers:
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.4.39)
-      consola:
-        specifier: ^3.2.3
-        version: 3.2.3
       dotenv-cli:
         specifier: ^7.4.2
         version: 7.4.2
@@ -8242,7 +8239,7 @@ snapshots:
       '@typescript-eslint/utils': 7.17.0(eslint@9.8.0)(typescript@5.5.4)
       '@unocss/config': 0.61.6
       '@unocss/core': 0.61.6
-      magic-string: 0.30.10
+      magic-string: 0.30.11
       synckit: 0.9.1
     transitivePeerDependencies:
       - eslint
