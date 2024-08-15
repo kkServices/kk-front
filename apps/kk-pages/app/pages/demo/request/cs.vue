@@ -1,27 +1,9 @@
 <script setup lang="ts">
-// const { data: defaultData } = await useRequest('/member/detail', {
-//   method: 'post',
-//   meta: {
-//     ignoreLogin: true,
-//     // isTransformResponse:true
-//   },
-// })
+import { useRequest } from '~/composables/useRequest'
 
-const { data, error, status, execute } = await useRequest(
-  '/member/detail',
-  {
-
-    method: 'post',
-    // immediate: false,
-    // default: () => {
-    // return defaultData.value
-    // },
-    meta: {
-      ignoreLogin: true,
-      // isTransformResponse:true
-    },
-  },
-)
+const { data, refresh, error } = useRequest<{ ip: string }>('/open/ip', {
+  method: 'get',
+})
 </script>
 
 <template>
@@ -40,13 +22,9 @@ const { data, error, status, execute } = await useRequest(
         <div v-else-if="error">
           error
           <br>
-          {{ error.statusCode }} - {{ error.message }} - {{ error.data }}
+          {{ error.code }} - {{ error.message }} - {{ error.data }}
         </div>
-        <div>
-          <van-button type="primary" :loading="status === 'pending'" @click="execute">
-            request
-          </van-button>
-        </div>
+        <Button label="refresh" @click="() => refresh()" />
       </div>
     </template>
   </suspense>

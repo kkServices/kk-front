@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { DonatePayModalProps } from './props'
 import { defaultProps } from './props'
-import { $fetchClient } from '~/service/kk-api/request/request.client'
 
 const props = withDefaults(defineProps<DonatePayModalProps>(), defaultProps)
 const emits = defineEmits(['paySuccess'])
@@ -9,7 +8,7 @@ const toastify = useToastify()
 const visible = defineModel<boolean>('visible', { required: true })
 const tradeNo = ref<null | string>(null)
 const { data, refresh, status } = await useAsyncData('/donate/order/status', () => {
-  return $fetchClient('/donate/order/status', {
+  return useNuxtApp().$request('/donate/order/status', {
     params: {
       outTradeNo: props.outTradeNo,
     },
@@ -18,7 +17,7 @@ const { data, refresh, status } = await useAsyncData('/donate/order/status', () 
   immediate: false,
 })
 const { execute: createOrderByTradeNo, data: createOrderData } = await useAsyncData('/donate/order/addByOrderNo', () => {
-  return $fetchClient('/donate/order/createByTradeNo', {
+  return useNuxtApp().$request('/donate/order/createByTradeNo', {
     method: 'post',
     body: {
       tradeNo: tradeNo.value,

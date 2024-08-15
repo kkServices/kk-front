@@ -21,7 +21,7 @@ const { data, error, status } = await useRequest(
         </div>
         <div v-else-if="error">
           page:
-          {{ error.statusCode }} - {{ error.message }} - {{ error.data }}
+          {{ error.code }} - {{ error.message }} - {{ error.data }}
         </div>
         <p v-if="data" text-red>
           服务端请求 {{ data }}

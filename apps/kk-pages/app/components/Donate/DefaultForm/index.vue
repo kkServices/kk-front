@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import { moneyOptions as _moneyOptions, messageList } from './data'
-import { $fetchClient } from '~/service/kk-api/request/request.client'
-import type { APIResponse } from '~/service/kk-api/type'
 
-const formRef = ref()
 const [visible, setVisible] = useToggle(false)
 const [paySuccessVisible] = useToggle(false)
+const formRef = ref()
 
 const formData = reactive({
   totalAmount: 0,
@@ -18,10 +16,11 @@ const { refresh } = await useRequest('/donate/order/recent', {
   server: false,
 })
 
-const { data, execute, status, error } = await useAsyncData<APIResponse<'/donate/order/create'>>('/donate/order/create', async () => {
-  return $fetchClient('/donate/order/create', {
+const { data, execute, status, error } = await useAsyncData('/donate/order/create', async () => {
+  return useNuxtApp().$request('/donate/order/create', {
     body: formData,
     method: 'POST',
+
   })
 }, { immediate: false })
 

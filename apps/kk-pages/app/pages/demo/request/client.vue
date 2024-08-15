@@ -1,8 +1,19 @@
 <script setup lang="ts">
-const { data, execute } = await useRequest(
-  '/user/query',
-  { immediate: false, meta: { ignoreLogin: true } },
-)
+const formData = reactive({
+  a: 1,
+  b: 2,
+})
+
+const { data, execute } = useFetch('/api/now', {
+  method: 'post',
+  body: formData,
+})
+
+function onClick(value: any) {
+  formData.a = value.a
+  formData.b = value.b
+  execute()
+}
 </script>
 
 <template>
@@ -17,7 +28,7 @@ const { data, execute } = await useRequest(
           {{ data }}
         </div>
         <div>
-          <Button label="request" @click="() => execute()" />
+          <Button label="request" @click="() => onClick({ a: 1 })" />
         </div>
       </div>
     </template>
