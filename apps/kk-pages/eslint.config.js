@@ -12,7 +12,6 @@ export default nuxt(
       ],
     },
     [
-
       ...tailwind.configs['flat/recommended'],
     ],
   ),

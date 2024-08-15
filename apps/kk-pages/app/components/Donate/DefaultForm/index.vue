@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { toTypedSchema } from '@vee-validate/zod'
 import { z } from 'zod'
-import { $fetchClient } from '~/service/kk-api/request/request.client'
-import type { APIResponse } from '~/service/kk-api/type'
 
+const $request = useNuxtApp().$request
 const [visible, setVisible] = useToggle(false)
 const [paySuccessVisible] = useToggle(false)
 const moneySelect = ref<number | string | null>()
@@ -45,8 +44,8 @@ watch(moneySelect, () => {
   }
 })
 
-const { data, execute, status, error } = await useAsyncData<APIResponse<'/donate/order/create'>>('/donate/order/create', () => {
-  return $fetchClient('/donate/order/create', {
+const { data, execute, status, error } = await useAsyncData<KS_API['/donate/order/create']>('/donate/order/create', () => {
+  return $request('/donate/order/create', {
     body: {
       totalAmount: money.value,
       message: message.value,
