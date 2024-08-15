@@ -73,7 +73,7 @@ function payCancelHandler() {
       <QRCode :text="props.qrCode" :loading="false" class="size-40" />
     </div>
 
-    <div class="flex items-center justify-between gap-2">
+    <div v-if="!isApi" class="flex items-center justify-between gap-2">
       <InputText v-model="tradeNo" placeholder="支付宝订单号" class="flex-1" />
       <Button label="提交" class="block" :disabled="!tradeNo" @click="createOrderHandler" />
     </div>
