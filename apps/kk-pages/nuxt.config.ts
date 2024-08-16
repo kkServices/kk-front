@@ -3,9 +3,7 @@
 import { appDescription } from './constants'
 
 export default defineNuxtConfig({
-  future: {
-    compatibilityVersion: 4,
-  },
+  appId: 'kk-pages',
 
   imports: {
     dirs: ['composables/**'],
@@ -56,7 +54,7 @@ export default defineNuxtConfig({
   ],
 
   colorMode: {
-    // preference: 'system', // default value of $colorMode.preference
+    preference: 'system', // default value of $colorMode.preference
     fallback: 'system', // fallback value if not system preference found
     hid: 'nuxt-color-mode-script',
     globalName: '__NUXT_COLOR_MODE__',
@@ -80,24 +78,33 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
+      viewport: 'width=device-width,initial-scale=1,maximum-scale=1.0,user-scalable=no',
       link: [
         { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
         { rel: 'icon', type: 'image/svg+xml', href: '/nuxt.svg' },
         { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
       ],
       meta: [
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'viewport', content: 'width=device-width,initial-scale=1,maximum-scale=1.0,user-scalable=no' },
         { name: 'description', content: appDescription },
         { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
         { name: 'theme-color', media: '(prefers-color-scheme: light)', content: '#f7f9fe' },
         { name: 'theme-color', media: '(prefers-color-scheme: dark)', content: '#18171d' },
+      ],
+      script: [
+        {
+          innerHTML: `let _lastTouchEnd=0;document.addEventListener('touchend',(event)=>{const now=(new Date()).getTime();if((now-_lastTouchEnd)<=300){event.preventDefault()};_lastTouchEnd=now},false)`,
+        },
       ],
     },
   },
 
   devtools: {
     enabled: true,
+  },
+
+  future: {
+    compatibilityVersion: 4,
   },
 
   features: {
