@@ -139,7 +139,7 @@ export default defineNuxtConfig({
       // },
       ripple: false,
     },
-    importPT: { as: 'Aura', from: '~~/preset/primevue/preset/aura/index.js' },
+    importPT: { as: 'Aura', from: '~~/preset/primevue/aura/index.js' },
   },
   typescript: {
     typeCheck: true,
