@@ -1,6 +1,6 @@
-import type { toast } from 'vue3-toastify'
-import type { Logger } from '@kk-project/logger/winston'
-import type { $Fetch } from 'ofetch'
+import type { toast } from 'vue3-toastify';
+import type { Logger } from '@kk-project/logger/winston';
+import type { $Fetch } from 'ofetch';
 
 declare module '#app' {
   interface NuxtApp {
@@ -18,4 +18,4 @@ declare module 'vue' {
   }
 }
 
-export {}
+export {};

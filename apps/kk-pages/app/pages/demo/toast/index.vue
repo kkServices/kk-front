@@ -1,17 +1,17 @@
 <script setup lang="ts">
 function onClick() {
-  const { $toast } = useNuxtApp()
+  const { $toast } = useNuxtApp();
 
-  const text = `寥落古行宫，宫花寂寞红。白头宫女在，闲坐说玄宗。寥落古行宫，宫花寂寞红。白头宫女在，闲坐说玄宗。寥落古行宫，宫花寂寞红。白头宫女在，闲坐说玄宗。寥落古行宫，宫花寂寞红。白头宫女在，闲坐说玄宗。`
+  const text = `寥落古行宫，宫花寂寞红。白头宫女在，闲坐说玄宗。寥落古行宫，宫花寂寞红。白头宫女在，闲坐说玄宗。寥落古行宫，宫花寂寞红。白头宫女在，闲坐说玄宗。寥落古行宫，宫花寂寞红。白头宫女在，闲坐说玄宗。`;
 
   $toast.info(
     text,
     { autoClose: false, theme: 'colored', position: 'top-center' },
-  )
-  $toast.error('ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss', { autoClose: false, theme: 'colored', position: 'top-center' })
-  $toast.success('sss', { autoClose: false, theme: 'colored', position: 'top-center' })
-  $toast.warning('sss', { autoClose: false, theme: 'colored', position: 'top-center' })
-  $toast.loading('sss', { autoClose: false, theme: 'colored', position: 'top-center' })
+  );
+  $toast.error('ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss', { autoClose: false, theme: 'colored', position: 'top-center' });
+  $toast.success('sss', { autoClose: false, theme: 'colored', position: 'top-center' });
+  $toast.warning('sss', { autoClose: false, theme: 'colored', position: 'top-center' });
+  $toast.loading('sss', { autoClose: false, theme: 'colored', position: 'top-center' });
 
   // $toast.info('sss', { autoClose: false })
   // $toast.error('sss', { autoClose: false })
@@ -41,7 +41,7 @@ function onClick() {
   // $toast.loading('sss', { autoClose: false, theme: 'colored' })
   // $toast('x', { autoClose: false, theme: 'colored' })
 
-  $toast('彩虹进度条', { autoClose: 3000000000, closeButton: true })
+  $toast('彩虹进度条', { autoClose: 3000000000, closeButton: true });
 }
 </script>
 

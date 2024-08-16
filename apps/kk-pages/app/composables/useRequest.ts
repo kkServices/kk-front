@@ -1,23 +1,23 @@
-import type { AsyncData, UseFetchOptions } from '#app'
+import type { AsyncData, UseFetchOptions } from '#app';
 
 interface UseFetchOptionsWithMeta<T> extends UseFetchOptions<T> {
   meta?: RequestMeta
 }
 
-function useRequest<K extends keyof KS_API, T = KS_API[K] | unknown, E = BaseResponseError>(url: K, options?: UseFetchOptionsWithMeta<T>): AsyncData<KS_API[K] | undefined, E | undefined>
-function useRequest<T = unknown, E = BaseResponseError>(url: string, options?: UseFetchOptionsWithMeta<T>): AsyncData<T | undefined, E | undefined>
+function useRequest<K extends keyof KS_API, T = KS_API[K] | unknown, E = BaseResponseError>(url: K, options?: UseFetchOptionsWithMeta<T>): AsyncData<KS_API[K] | undefined, E | undefined>;
+function useRequest<T = unknown, E = BaseResponseError>(url: string, options?: UseFetchOptionsWithMeta<T>): AsyncData<T | undefined, E | undefined>;
 
 function useRequest<T = unknown, E = BaseResponseError>(
   url: string,
   options: UseFetchOptionsWithMeta<T> = {},
 ) {
-  const { $request } = useNuxtApp()
+  const { $request } = useNuxtApp();
   return useFetch<T, E>(url, {
     ...options,
     $fetch: $request,
-  } as any)
+  } as any);
 }
-export { useRequest }
+export { useRequest };
 
 // const { data: data1 } = await useRequest('/saasddsa/sad', {})
 // console.log(data1.value) // 类型为 unknown

@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'vue'
+import type { HTMLAttributes } from 'vue';
 
 export interface DonatePayModalProps {
   class?: HTMLAttributes['class']
@@ -16,4 +16,4 @@ export const defaultProps = {
   // visible: false,
   isApi: false,
   // qrCode: '',
-}
+};

@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'vue'
+import type { HTMLAttributes } from 'vue';
 
 export interface DonatePayListItemProps {
   class?: HTMLAttributes['class']
@@ -11,4 +11,4 @@ export interface DonatePayListItemProps {
 
 export const defaultProps = {
   class: '',
-}
+};

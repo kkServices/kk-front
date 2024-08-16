@@ -1,5 +1,5 @@
 export default defineEventHandler((request) => {
-  const { id } = getQuery(request)
+  const { id } = getQuery(request);
 
   return {
     name: '嘉盛中心门禁',
@@ -51,5 +51,5 @@ export default defineEventHandler((request) => {
         type: 'image/png',
       },
     ],
-  }
-})
+  };
+});

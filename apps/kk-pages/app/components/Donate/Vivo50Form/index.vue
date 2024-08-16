@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { toTypedSchema } from '@vee-validate/zod'
-import { z } from 'zod'
+import { toTypedSchema } from '@vee-validate/zod';
+import { z } from 'zod';
 
-const [visible, setVisible] = useToggle(false)
-const moneySelect = ref<number | string>(50)
+const [visible, setVisible] = useToggle(false);
+const moneySelect = ref<number | string>(50);
 const moneyList = ref([
   { name: 'v我50，看看实力', value: 50 },
-])
-const isShowCustomInputNumber = computed(() => moneySelect.value === 'custom')
+]);
+const isShowCustomInputNumber = computed(() => moneySelect.value === 'custom');
 
 const { errors, defineField, handleSubmit, setFieldValue, resetField } = useForm({
 
@@ -18,26 +18,25 @@ const { errors, defineField, handleSubmit, setFieldValue, resetField } = useForm
       email: z.union([z.string().email({ message: '请输入正确的邮箱' }), z.literal(''), z.undefined()]).optional(),
     }),
   ),
-})
+});
 
-const [money] = defineField('money')
-const [message] = defineField('message')
-const [email] = defineField('email')
+const [money] = defineField('money');
+const [message] = defineField('message');
+const [email] = defineField('email');
 
 watch(moneySelect, () => {
   if (typeof moneySelect.value === 'number') {
-    setFieldValue('money', moneySelect.value)
-  }
-  else {
+    setFieldValue('money', moneySelect.value);
+  } else {
     if (moneySelect.value === 'custom') {
-      resetField('money')
+      resetField('money');
     }
   }
-})
+});
 
 const onSubmit = handleSubmit((_values) => {
-  setVisible(true)
-})
+  setVisible(true);
+});
 
 function randomMessage() {
   const messages = [
@@ -45,9 +44,9 @@ function randomMessage() {
     '2222',
     '3333',
     '4444',
-  ]
-  const randomIndex = Math.floor(Math.random() * messages.length)
-  setFieldValue('message', messages[randomIndex])
+  ];
+  const randomIndex = Math.floor(Math.random() * messages.length);
+  setFieldValue('message', messages[randomIndex]);
 }
 </script>
 
@@ -86,7 +85,7 @@ function randomMessage() {
       <Button class="mt-4" type="submit" label="submit" />
     </VeeForm>
     <Dialog v-model:visible="visible" modal header="Edit Profile" :style="{ width: '25rem' }">
-      <span class="text-surface-500 dark:text-surface-400 mb-8 block">Update your information.</span>
+      <span class="mb-8 block text-surface-500 dark:text-surface-400">Update your information.</span>
       <div class="mb-4 flex items-center gap-4">
         <label for="username" class="w-24 font-semibold">Username</label>
         <InputText id="username" class="flex-auto" autocomplete="off" />

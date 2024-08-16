@@ -1,21 +1,21 @@
-import { addDynamicIconSelectors } from '@iconify/tailwind'
+import { addDynamicIconSelectors } from '@iconify/tailwind';
 
 import {
   tailwindPluginUtils,
   tailwindPresetAnimation,
   tailwindPresetHeroPatterns,
-} from '@kk-project/tailwindcss/index'
+} from '@kk-project/tailwindcss/index';
 /**
  * 生成从 min 到 max 的间距
  */
 function generateSpacing(min: number, max: number) {
   /** @type {Record<string, string>} */
-  const spacing: Record<string, string> = {}
+  const spacing: Record<string, string> = {};
   for (let i = min; i <= max; i++) {
-    spacing[i] = `${i * 0.25}rem`
-    spacing[`${i}.5`] = `${i * 0.25 + 0.125}rem`
+    spacing[i] = `${i * 0.25}rem`;
+    spacing[`${i}.5`] = `${i * 0.25 + 0.125}rem`;
   }
-  return spacing
+  return spacing;
 }
 
 /** @type {import('tailwindcss').Config} */
@@ -119,4 +119,4 @@ module.exports = {
 
   ],
 
-}
+};

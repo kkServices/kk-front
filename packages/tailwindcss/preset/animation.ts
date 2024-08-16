@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
 
@@ -17,6 +17,6 @@ const config: Config = {
       },
     },
   },
-}
+};
 
-export default config
+export default config;

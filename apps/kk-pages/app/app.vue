@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { appName } from '~~/constants'
+import { appName } from '~~/constants';
 
 useHead({
   titleTemplate: (productCategory) => {
     return productCategory
       ? `${productCategory} - ${appName}`
-      : appName
+      : appName;
   },
-})
+});
 </script>
 
 <template>

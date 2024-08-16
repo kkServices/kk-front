@@ -8,4 +8,4 @@ export interface DonatePayFormProps {
 export const defaultProps = {
   class: '',
   loading: false,
-}
+};

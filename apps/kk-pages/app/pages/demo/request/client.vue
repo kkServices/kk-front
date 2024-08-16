@@ -2,17 +2,17 @@
 const formData = reactive({
   a: 1,
   b: 2,
-})
+});
 
 const { data, execute } = useFetch('/api/now', {
   method: 'post',
   body: formData,
-})
+});
 
 function onClick(value: any) {
-  formData.a = value.a
-  formData.b = value.b
-  execute()
+  formData.a = value.a;
+  formData.b = value.b;
+  execute();
 }
 </script>
 

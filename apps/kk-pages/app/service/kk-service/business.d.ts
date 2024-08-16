@@ -30,7 +30,7 @@ interface DonateOrderRecentItem {
   emailHash: string
   time: string
 }
-type DonateMessageStatus = 'WAITING' | 'SUCCESS' | 'FAIL'
+type DonateMessageStatus = 'WAITING' | 'SUCCESS' | 'FAIL';
 
 declare interface KS_API {
   '/donate/order/recent': DonateOrderRecentItem[]

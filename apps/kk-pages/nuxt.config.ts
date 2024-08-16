@@ -1,6 +1,6 @@
 // noinspection ES6PreferShortImport
 
-import { appDescription } from './constants'
+import { appDescription } from './constants';
 
 export default defineNuxtConfig({
   appId: 'kk-pages',
@@ -146,4 +146,4 @@ export default defineNuxtConfig({
     strict: true,
   },
   compatibilityDate: '2024-07-20',
-})
+});

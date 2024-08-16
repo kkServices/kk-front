@@ -1,4 +1,4 @@
-import type { FetchOptions } from 'ofetch'
+import type { FetchOptions } from 'ofetch';
 
 interface _FetchOptions extends FetchOptions {
   _startTime?: number

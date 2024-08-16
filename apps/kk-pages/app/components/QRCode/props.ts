@@ -8,4 +8,4 @@ export const defaultProps: QRCodeProps = {
   text: '',
   loading: false,
   class: '',
-}
+};

@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-const visible = defineModel<boolean>('visible', { required: true })
+const visible = defineModel<boolean>('visible', { required: true });
 
 function payCancelHandler() {
-  visible.value = false
+  visible.value = false;
 }
 
 // function paySuccessHandler() {

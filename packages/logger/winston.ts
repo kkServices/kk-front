@@ -1,8 +1,8 @@
-import type { Logger } from 'winston'
-import { createLogger, format, transports } from 'winston'
-import type * as Transport from 'winston-transport'
+import type { Logger } from 'winston';
+import { createLogger, format, transports } from 'winston';
+import type * as Transport from 'winston-transport';
 
-const { combine, timestamp, colorize, printf } = format
+const { combine, timestamp, colorize, printf } = format;
 
 const alignColorsAndTime = combine(
   // eslint-disable-next-line node/prefer-global/process
@@ -10,19 +10,19 @@ const alignColorsAndTime = combine(
   timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
   printf(
     (info) => {
-      const { timestamp, level, message, ...args } = info
-      return `[${level}] ${timestamp} : ${message} - ${JSON.stringify(args)}`
+      const { timestamp, level, message, ...args } = info;
+      return `[${level}] ${timestamp} : ${message} - ${JSON.stringify(args)}`;
     },
   ),
-)
+);
 
 const transportList: Transport[] = [new transports.Console({
   format: alignColorsAndTime,
-})]
+})];
 
 const logger = createLogger({
   transports: transportList,
-})
+});
 
-export default logger
-export type { Logger }
+export default logger;
+export type { Logger };
