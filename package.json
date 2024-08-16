@@ -12,9 +12,9 @@
     "lint-staged": "lint-staged",
     "preinstall": "npx only-allow pnpm",
     "clean": "turbo run clean && rimraf node_modules",
-    "eslint": "eslint .",
-    "lint": "turbo run lint",
-    "lint:fix": "turbo run lint:fix"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "lint:debug": "eslint . --debug"
   },
   "dependencies": {
     "@kk-project/logger": "workspace:^",

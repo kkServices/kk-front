@@ -25,11 +25,11 @@ function createLog<T extends any[]>(fn: (type: Color, ...args: T) => void): Reco
 function nsLog(type: Color, ns: string, msg: string, ...args: any[]) {
   const color = getColor(type);
   console.log(
-      `%c ${ns} %c ${msg} %c ${args.length ? '%o' : ''}`,
-      `background:${color};border:1px solid ${color}; padding: 1px; border-radius: 4px 0 0 4px; color: #fff;`,
-      `border:1px solid ${color}; padding: 1px; border-radius: 0 4px 4px 0; color: ${color};`,
-      'background:transparent',
-      ...args,
+    `%c ${ns} %c ${msg} %c ${args.length ? '%o' : ''}`,
+    `background:${color};border:1px solid ${color}; padding: 1px; border-radius: 4px 0 0 4px; color: #fff;`,
+    `border:1px solid ${color}; padding: 1px; border-radius: 0 4px 4px 0; color: ${color};`,
+    'background:transparent',
+    ...args,
   );
 }
 
@@ -38,9 +38,9 @@ export const logN = createLog(nsLog);
 function sLog(type: Color, msg: string, ...args: any[]) {
   const color = getColor(type);
   console.log(
-      `%c ${msg} ${args.length ? '%o' : ''}`,
-      `color: ${color};`,
-      ...args,
+    `%c ${msg} ${args.length ? '%o' : ''}`,
+    `color: ${color};`,
+    ...args,
   );
 }
 
@@ -49,9 +49,9 @@ export const logS = createLog(sLog);
 function bLog(type: Color, msg: string, ...args: any[]) {
   const color = getColor(type);
   console.log(
-      `%c ${msg} ${args.length ? '%o' : ''}`,
-      `background:${color}; padding: 2px; border-radius: 4px; color: #fff;`,
-      ...args,
+    `%c ${msg} ${args.length ? '%o' : ''}`,
+    `background:${color}; padding: 2px; border-radius: 4px; color: #fff;`,
+    ...args,
   );
 }
 

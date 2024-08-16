@@ -4,7 +4,6 @@ import nuxt from './apps/kk-pages/.nuxt/eslint.config.mjs';
 
 export default nuxt(antfu(
   {
-    unocss: false,
     formatters: true,
     rules: {
       'curly': ['error', 'all'],
@@ -33,7 +32,9 @@ export default nuxt(antfu(
       rules: {
         'tailwindcss/no-custom-classname': ['warn', {
           whitelist: [
-            // '(?!(bg|text|icon)\\-).*',
+            '^(?!.*\\-)(bg|text)-(primary|secondary)(?:-\\d+)?$',
+            'text-primary',
+            'icon-[-\\w]+',
             'p-invalid',
             'flex-center',
             'text-primary-700',

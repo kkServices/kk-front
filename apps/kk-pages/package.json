@@ -11,8 +11,6 @@
     "start:generate": "npx serve .output/public",
     "typecheck": "vue-tsc --noEmit",
     "clean": "rimraf .nuxt",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
     "up": "taze major -I"
   },
   "dependencies": {

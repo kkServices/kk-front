@@ -3,24 +3,8 @@
   --toastify-toast-min-height: 52px;
   --toastify-text-color-light: var(--p-text-color);
   --toastify-text-color-dark: var(--p-text-color);
-  --toastify-color-progress-dark: linear-gradient(
-    to right,
-    #4cd964,
-    #5ac8fa,
-    #007aff,
-    #34aadc,
-    #5856d6,
-    #ff2d55
-  );
-  --toastify-color-progress-light: linear-gradient(
-    to right,
-    #4cd964,
-    #5ac8fa,
-    #007aff,
-    #34aadc,
-    #5856d6,
-    #ff2d55
-  );
+  --toastify-color-progress-dark: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55);
+  --toastify-color-progress-light: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55);
 
   --toastify-icon-color-info: Rblue-600;
   --toastify-icon-color-success: #{$green-600};
@@ -52,16 +36,8 @@
     --toastify-color-light: #121212;
     --toastify-color-dark: #121212;
     --toastify-color-info: color-mix(in srgb, #{$blue-500}, transparent 84%);
-    --toastify-color-success: color-mix(
-      in srgb,
-      #{$green-500},
-      transparent 84%
-    );
-    --toastify-color-warning: color-mix(
-      in srgb,
-      #{$yellow-500},
-      transparent 84%
-    );
+    --toastify-color-success: color-mix(in srgb, #{$green-500}, transparent 84%);
+    --toastify-color-warning: color-mix(in srgb, #{$yellow-500}, transparent 84%);
     --toastify-color-error: color-mix(in srgb, #{$red-500}, transparent 84%);
 
     --toastify-text-color-info: #{$blue-600};
