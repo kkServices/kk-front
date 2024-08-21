@@ -1,7 +1,7 @@
 <script setup lang="ts">
 definePageMeta({
   title: 'common',
-})
+});
 </script>
 
 <template>

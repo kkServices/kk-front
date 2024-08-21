@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { useRequest } from '~/composables/useRequest'
+import { useRequest } from '~/composables/useRequest';
 
 const { data, refresh, error } = useRequest<{ ip: string }>('/open/ip', {
   method: 'get',
-})
+});
 </script>
 
 <template>

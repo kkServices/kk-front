@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'vue'
+import type { HTMLAttributes } from 'vue';
 
 export interface SkeletonProps {
   class?: HTMLAttributes['class']
@@ -6,4 +6,4 @@ export interface SkeletonProps {
 
 export const defaultProps: SkeletonProps = {
   class: '',
-}
+};

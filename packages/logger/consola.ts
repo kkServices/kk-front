@@ -1,5 +1,5 @@
-import { createConsola } from 'consola'
+import { createConsola } from 'consola';
 
-const consola = createConsola({})
+const consola = createConsola({});
 
-export default consola
+export default consola;

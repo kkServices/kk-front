@@ -2,9 +2,7 @@
   "name": "@kk-project/logger",
   "private": true,
   "scripts": {
-    "clean": "pnpm rimraf node_modules",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "clean": "pnpm rimraf node_modules"
   },
   "dependencies": {
     "consola": "^3.2.3",

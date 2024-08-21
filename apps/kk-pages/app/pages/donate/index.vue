@@ -1,5 +1,5 @@
 <script setup lang="ts">
-navigateTo('/donate/default', { redirectCode: 302 })
+navigateTo('/donate/default', { redirectCode: 302 });
 </script>
 
 <template>

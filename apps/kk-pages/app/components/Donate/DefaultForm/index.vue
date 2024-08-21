@@ -1,48 +1,48 @@
 <script setup lang="ts">
-import { moneyOptions as _moneyOptions, messageList } from './data'
+import { moneyOptions as _moneyOptions, messageList } from './data';
 
-const [visible, setVisible] = useToggle(false)
-const [paySuccessVisible] = useToggle(false)
-const formRef = ref()
+const [visible, setVisible] = useToggle(false);
+const [paySuccessVisible] = useToggle(false);
+const formRef = ref();
 
 const formData = reactive({
   totalAmount: 0,
   message: '',
   email: null,
   recaptcha: '',
-})
+});
 
 const { refresh } = await useRequest('/donate/order/recent', {
   server: false,
-})
+});
 
 const { data, execute, status, error } = await useAsyncData('/donate/order/create', async () => {
   return useNuxtApp().$request('/donate/order/create', {
     body: formData,
     method: 'POST',
 
-  })
-}, { immediate: false })
+  });
+}, { immediate: false });
 
-const loading = computed(() => status.value === 'pending')
+const loading = computed(() => status.value === 'pending');
 
 function onSubmitHandler(values: { email?: string, message: string, money: number, recaptcha: string }) {
-  formData.email = (values.email || null) as null
-  formData.message = values.message || ''
-  formData.totalAmount = values.money
-  formData.recaptcha = values.recaptcha
+  formData.email = (values.email || null) as null;
+  formData.message = values.message || '';
+  formData.totalAmount = values.money;
+  formData.recaptcha = values.recaptcha;
   execute().then(() => {
     if (!error.value) {
-      setVisible(true)
+      setVisible(true);
     }
-  })
+  });
 }
 
 function paySuccessHandler() {
-  setVisible(false)
-  paySuccessVisible.value = true
-  formRef.value.reset()
-  refresh()
+  setVisible(false);
+  paySuccessVisible.value = true;
+  formRef.value.reset();
+  refresh();
 }
 </script>
 

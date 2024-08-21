@@ -1,4 +1,4 @@
-import plugin from 'tailwindcss/plugin'
+import plugin from 'tailwindcss/plugin';
 
 export default plugin(
   ({ addUtilities, matchUtilities, theme }) => {
@@ -23,61 +23,61 @@ export default plugin(
         '--tw-exit-translate-x': 'initial',
         '--tw-exit-translate-y': 'initial',
       },
-    })
+    });
 
     matchUtilities(
       {
-        'fade-in': value => ({ '--tw-enter-opacity': value }),
-        'fade-out': value => ({ '--tw-exit-opacity': value }),
+        'fade-in': (value) => ({ '--tw-enter-opacity': value }),
+        'fade-out': (value) => ({ '--tw-exit-opacity': value }),
       },
       { values: theme('animationOpacity') },
-    )
+    );
 
     matchUtilities(
       {
-        'zoom-in': value => ({ '--tw-enter-scale': value }),
-        'zoom-out': value => ({ '--tw-exit-scale': value }),
+        'zoom-in': (value) => ({ '--tw-enter-scale': value }),
+        'zoom-out': (value) => ({ '--tw-exit-scale': value }),
       },
       { values: theme('animationScale') },
-    )
+    );
 
     matchUtilities(
       {
-        'spin-in': value => ({ '--tw-enter-rotate': value }),
-        'spin-out': value => ({ '--tw-exit-rotate': value }),
+        'spin-in': (value) => ({ '--tw-enter-rotate': value }),
+        'spin-out': (value) => ({ '--tw-exit-rotate': value }),
       },
       { values: theme('animationRotate') },
-    )
+    );
 
     matchUtilities(
       {
-        'slide-in-from-top': value => ({
+        'slide-in-from-top': (value) => ({
           '--tw-enter-translate-y': `-${value}`,
         }),
-        'slide-in-from-bottom': value => ({
+        'slide-in-from-bottom': (value) => ({
           '--tw-enter-translate-y': value,
         }),
-        'slide-in-from-left': value => ({
+        'slide-in-from-left': (value) => ({
           '--tw-enter-translate-x': `-${value}`,
         }),
-        'slide-in-from-right': value => ({
+        'slide-in-from-right': (value) => ({
           '--tw-enter-translate-x': value,
         }),
-        'slide-out-to-top': value => ({
+        'slide-out-to-top': (value) => ({
           '--tw-exit-translate-y': `-${value}`,
         }),
-        'slide-out-to-bottom': value => ({
+        'slide-out-to-bottom': (value) => ({
           '--tw-exit-translate-y': value,
         }),
-        'slide-out-to-left': value => ({
+        'slide-out-to-left': (value) => ({
           '--tw-exit-translate-x': `-${value}`,
         }),
-        'slide-out-to-right': value => ({
+        'slide-out-to-right': (value) => ({
           '--tw-exit-translate-x': value,
         }),
       },
       { values: theme('animationTranslate') },
-    )
+    );
 
     // matchUtilities(
     //   { duration: value => ({ animationDuration: value }) },
@@ -85,9 +85,9 @@ export default plugin(
     // )
 
     matchUtilities(
-      { delay: value => ({ animationDelay: value }) },
+      { delay: (value) => ({ animationDelay: value }) },
       { values: theme('animationDelay') },
-    )
+    );
 
     // matchUtilities(
     //   { ease: value => ({ animationTimingFunction: value }) },
@@ -97,22 +97,22 @@ export default plugin(
     addUtilities({
       '.running': { animationPlayState: 'running' },
       '.paused': { animationPlayState: 'paused' },
-    })
+    });
 
     matchUtilities(
-      { 'fill-mode': value => ({ animationFillMode: value }) },
+      { 'fill-mode': (value) => ({ animationFillMode: value }) },
       { values: theme('animationFillMode') },
-    )
+    );
 
     matchUtilities(
-      { direction: value => ({ animationDirection: value }) },
+      { direction: (value) => ({ animationDirection: value }) },
       { values: theme('animationDirection') },
-    )
+    );
 
     matchUtilities(
-      { repeat: value => ({ animationIterationCount: value }) },
+      { repeat: (value) => ({ animationIterationCount: value }) },
       { values: theme('animationRepeat') },
-    )
+    );
   },
   {
     theme: {
@@ -177,4 +177,4 @@ export default plugin(
       },
     },
   },
-)
+);

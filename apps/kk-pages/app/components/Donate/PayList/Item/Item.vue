@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { defaultProps } from './props'
-import type { DonatePayListItemProps } from './props'
+import { defaultProps } from './props';
+import type { DonatePayListItemProps } from './props';
 
-const props = withDefaults(defineProps<DonatePayListItemProps>(), defaultProps)
+const props = withDefaults(defineProps<DonatePayListItemProps>(), defaultProps);
 </script>
 
 <template>

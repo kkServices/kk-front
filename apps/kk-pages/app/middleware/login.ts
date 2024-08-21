@@ -3,4 +3,4 @@ export default defineNuxtRouteMiddleware((_to, _from) => {
   // if (!cookies.value) {
   //   return navigateTo(`${PATH.LOGIN}?redirect=${from.path}`)
   // }
-})
+});

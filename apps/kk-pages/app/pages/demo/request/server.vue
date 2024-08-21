@@ -9,7 +9,7 @@ const { data, error, status } = await useRequest(
       // isTransformResponse:true
     },
   },
-)
+);
 </script>
 
 <template>

@@ -1,21 +1,21 @@
 <script setup lang="ts">
-import type { DonatePayModalProps } from './props'
-import { defaultProps } from './props'
+import type { DonatePayModalProps } from './props';
+import { defaultProps } from './props';
 
-const props = withDefaults(defineProps<DonatePayModalProps>(), defaultProps)
-const emits = defineEmits(['paySuccess'])
-const toastify = useToastify()
-const visible = defineModel<boolean>('visible', { required: true })
-const tradeNo = ref<null | string>(null)
+const props = withDefaults(defineProps<DonatePayModalProps>(), defaultProps);
+const emits = defineEmits(['paySuccess']);
+const toastify = useToastify();
+const visible = defineModel<boolean>('visible', { required: true });
+const tradeNo = ref<null | string>(null);
 const { data, refresh, status } = await useAsyncData('/donate/order/status', () => {
   return useNuxtApp().$request('/donate/order/status', {
     params: {
       outTradeNo: props.outTradeNo,
     },
-  })
+  });
 }, {
   immediate: false,
-})
+});
 const { execute: createOrderByTradeNo, data: createOrderData } = await useAsyncData('/donate/order/addByOrderNo', () => {
   return useNuxtApp().$request('/donate/order/createByTradeNo', {
     method: 'post',
@@ -24,34 +24,33 @@ const { execute: createOrderByTradeNo, data: createOrderData } = await useAsyncD
       message: props.message,
       email: props.email,
     },
-  })
+  });
 }, {
   immediate: false,
-})
+});
 
 async function createOrderHandler() {
   createOrderByTradeNo().then(() => {
     if (createOrderData.value) {
-      visible.value = false
-      tradeNo.value = null
-      emits('paySuccess')
+      visible.value = false;
+      tradeNo.value = null;
+      emits('paySuccess');
     }
-  })
+  });
 }
 
 async function paySuccessHandler() {
-  await refresh()
+  await refresh();
   if (data.value) {
-    visible.value = false
-    emits('paySuccess')
-  }
-  else {
-    toastify.error('该订单暂未支付，请稍后重试')
+    visible.value = false;
+    emits('paySuccess');
+  } else {
+    toastify.error('该订单暂未支付，请稍后重试');
   }
 }
 
 function payCancelHandler() {
-  visible.value = false
+  visible.value = false;
 }
 </script>
 

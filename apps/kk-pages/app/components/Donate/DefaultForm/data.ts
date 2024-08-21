@@ -7,7 +7,7 @@ export const moneyOptions = [
   { name: '¥20.00 一顿午餐', value: 20 },
   { name: '¥50.00 KFC', value: 50 },
   { name: '爷自己写', value: 'custom' },
-]
+];
 export const messageList = [
   '心中有梦，脚下就有路。',
   '风雨过后一定有彩虹。',
@@ -16,4 +16,4 @@ export const messageList = [
   '携手前行，共创未来。',
   '种下希望的种子，期待收获。',
   '每一步前进都是希望。',
-]
+];

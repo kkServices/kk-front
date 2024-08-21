@@ -1,11 +1,11 @@
 <script setup lang="ts">
 const { data, status } = await useRequest('/donate/order/recent', {
   server: false,
-})
+});
 
 const totalAmount = computed(() => {
-  return data.value?.reduce((total, item) => total + item.totalAmount, 0) || 0
-})
+  return data.value?.reduce((total, item) => total + item.totalAmount, 0) || 0;
+});
 </script>
 
 <template>

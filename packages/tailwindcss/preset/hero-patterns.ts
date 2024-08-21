@@ -1,5 +1,5 @@
 /* eslint-disable ts/no-require-imports */
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
 
@@ -15,6 +15,6 @@ const config: Config = {
   plugins: [
     require('@lorenzopalaia/tailwind-hero-patterns'),
   ],
-}
+};
 
-export default config
+export default config;

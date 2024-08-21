@@ -27,7 +27,7 @@ declare interface BaseResponseError<T = null> {
   success: false
   timestamp: string
 }
-type BaseResponse<T = unknown> = BaseResponseSuccess<T> | BaseResponseError<T>
+type BaseResponse<T = unknown> = BaseResponseSuccess<T> | BaseResponseError<T>;
 
 declare interface RequestMeta {
   isTransformResponse?: boolean

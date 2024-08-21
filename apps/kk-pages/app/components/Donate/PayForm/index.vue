@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { toTypedSchema } from '@vee-validate/zod'
-import { z } from 'zod'
-import { defaultProps } from './props'
-import type { DonatePayFormProps } from './props'
+import { toTypedSchema } from '@vee-validate/zod';
+import { z } from 'zod';
+import { defaultProps } from './props';
+import type { DonatePayFormProps } from './props';
 
-const props = withDefaults(defineProps<DonatePayFormProps>(), defaultProps)
-const emits = defineEmits(['submit'])
-const moneySelect = ref<number | string | null>()
-const getRecaptchaTokenIng = ref(false)
-const isShowCustomInputNumber = computed(() => moneySelect.value === 'custom')
+const props = withDefaults(defineProps<DonatePayFormProps>(), defaultProps);
+const emits = defineEmits(['submit']);
+const moneySelect = ref<number | string | null>();
+const getRecaptchaTokenIng = ref(false);
+const isShowCustomInputNumber = computed(() => moneySelect.value === 'custom');
 
 const { errors, defineField, handleSubmit, setFieldValue, resetField, resetForm } = useForm({
 
@@ -19,52 +19,51 @@ const { errors, defineField, handleSubmit, setFieldValue, resetField, resetForm 
       email: z.union([z.string().email({ message: '请输入正确的邮箱' }), z.literal(''), z.undefined()]).optional(),
     }),
   ),
-})
+});
 
-const [money] = defineField('money')
-const [message] = defineField('message')
-const [email] = defineField('email')
+const [money] = defineField('money');
+const [message] = defineField('message');
+const [email] = defineField('email');
 
 function randomMessage() {
-  const messages = props.messageList
-  const randomIndex = Math.floor(Math.random() * messages.length)
-  setFieldValue('message', messages[randomIndex])
+  const messages = props.messageList;
+  const randomIndex = Math.floor(Math.random() * messages.length);
+  setFieldValue('message', messages[randomIndex]);
 }
 function recaptchaToken() {
-  getRecaptchaTokenIng.value = true
+  getRecaptchaTokenIng.value = true;
   return new Promise((resolve, reject) => {
     (window as any).grecaptcha.execute('6LcYZCQqAAAAAO9bjJLxXZciH5Uu_Hm6DfFZpZgt', { action: 'submit' }).then((token: string) => {
-      resolve(token)
-      getRecaptchaTokenIng.value = false
+      resolve(token);
+      getRecaptchaTokenIng.value = false;
     }).catch((err: Error) => {
-      reject(err)
-      getRecaptchaTokenIng.value = false
-    })
-  })
+      reject(err);
+      getRecaptchaTokenIng.value = false;
+    });
+  });
 }
 
 function reset() {
-  resetForm()
-  moneySelect.value = null
+  resetForm();
+  moneySelect.value = null;
 }
 
 const onSubmit = handleSubmit(async (values) => {
-  const recaptcha = await recaptchaToken()
-  emits('submit', { ...values, recaptcha })
-})
+  const recaptcha = await recaptchaToken();
+  emits('submit', { ...values, recaptcha });
+});
 
 watch(moneySelect, () => {
   if (typeof moneySelect.value === 'number') {
-    setFieldValue('money', moneySelect.value)
-  }
-  else {
+    setFieldValue('money', moneySelect.value);
+  } else {
     if (moneySelect.value === 'custom') {
-      resetField('money')
+      resetField('money');
     }
   }
-})
+});
 
-defineExpose({ reset })
+defineExpose({ reset });
 </script>
 
 <template>
