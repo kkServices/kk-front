@@ -6,11 +6,10 @@
     "dev": "nuxi dev --dotenv .env.local --host --p 3001",
     "build": "nuxi build --dotenv .env.local",
     "generate": "nuxi generate",
-    "prepare": "nuxi prepare",
+    "build:prepare": "nuxi prepare",
     "start": "node .output/server/index.mjs --host",
     "start:generate": "npx serve .output/public",
     "typecheck": "vue-tsc --noEmit",
-    "clean": "rimraf .nuxt",
     "up": "taze major -I"
   },
   "dependencies": {

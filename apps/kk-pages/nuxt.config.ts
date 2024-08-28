@@ -1,5 +1,4 @@
-// noinspection ES6PreferShortImport
-
+import postcssConfig from '@kk-project/tailwind-config/postcss';
 import { appDescription } from './constants';
 
 export default defineNuxtConfig({
@@ -11,7 +10,6 @@ export default defineNuxtConfig({
 
   modules: [
     '@vueuse/nuxt',
-    // '@unocss/nuxt',
     '@pinia/nuxt',
     '@nuxtjs/color-mode',
     '@nuxt/eslint',
@@ -117,13 +115,7 @@ export default defineNuxtConfig({
     },
   },
 
-  postcss: {
-    plugins: {
-      'tailwindcss': {},
-      'autoprefixer': {},
-      '@csstools/postcss-color-mix-function': {},
-    },
-  },
+  postcss: postcssConfig,
   routeRules: {},
   primevue: {
     components: {
@@ -139,7 +131,7 @@ export default defineNuxtConfig({
       // },
       ripple: false,
     },
-    importPT: { as: 'Aura', from: '~~/preset/primevue/aura/index.js' },
+    importPT: { as: 'Aura', from: '@kk-project/preset/primevue/aura/index' },
   },
   typescript: {
     typeCheck: true,

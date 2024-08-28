@@ -1,4 +1,4 @@
-name: Deploy Vercel
+name: Deploy Vercel KK Pages
 
 on:
   workflow_dispatch:
