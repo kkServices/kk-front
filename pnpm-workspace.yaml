@@ -2,4 +2,5 @@ packages:
   - 'packages/**'
   - 'apps/**'
   - 'tooling/**'
+  - 'internal/**'
   - '!**/__test__/**'
