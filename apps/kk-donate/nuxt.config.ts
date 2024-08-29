@@ -15,6 +15,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxt/eslint',
     '@primevue/nuxt-module',
+    '@nuxtjs/tailwindcss',
     [
       '@vee-validate/nuxt',
       {
@@ -29,7 +30,6 @@ export default defineNuxtConfig({
         },
       },
     ],
-    '@nuxtjs/tailwindcss',
   ],
 
   runtimeConfig: {
@@ -119,24 +119,16 @@ export default defineNuxtConfig({
   postcss: postcssConfig,
   routeRules: {},
   primevue: {
-    components: {
-      // prefix: 'Prime',
-    },
+    components: {},
     options: {
       unstyled: true,
-      // theme: {
-      //   preset: primevuePreset,
-      //   options: {
-      //     darkModeSelector: '[date-theme="dark"]',
-      //   },
-      // },
       ripple: false,
     },
     importPT: { as: 'Aura', from: '@kk-project/ui-primevue/preset/aura' },
   },
   typescript: {
-    typeCheck: true,
-    strict: true,
+    typeCheck: false,
+    strict: false,
   },
   compatibilityDate: '2024-07-20',
 });

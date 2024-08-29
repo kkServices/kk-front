@@ -1,5 +1,2 @@
-import PATH from './path';
-
-export const appName = 'Vitesse for Nuxt 3';
-export const appDescription = 'Vitesse for Nuxt 3';
-export { PATH };
+export const appName = '要饭网';
+export const appDescription = '您能帮我走向小康么？';

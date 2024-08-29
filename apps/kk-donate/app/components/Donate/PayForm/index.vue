@@ -14,7 +14,7 @@ const { errors, defineField, handleSubmit, setFieldValue, resetField, resetForm 
 
   validationSchema: toTypedSchema(
     z.object({
-      money: z.number({ message: '请输入金额' }).min(1).max(100000, { message: '最大金额1000' }),
+      money: z.number({ message: '请输入金额' }).min(1).max(999999999, { message: '咱可不敢收这么大一笔钱啊！' }),
       message: z.string({ message: '请输入留言' }).max(20, { message: '最长可输入20个字符哦！' }),
       email: z.union([z.string().email({ message: '请输入正确的邮箱' }), z.literal(''), z.undefined()]).optional(),
     }),

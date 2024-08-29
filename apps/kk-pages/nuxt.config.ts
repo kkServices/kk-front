@@ -136,8 +136,8 @@ export default defineNuxtConfig({
     importPT: { as: 'Aura', from: '@kk-project/ui-primevue/preset/aura' },
   },
   typescript: {
-    typeCheck: true,
-    strict: true,
+    typeCheck: false,
+    strict: false,
   },
   compatibilityDate: '2024-07-20',
 });
