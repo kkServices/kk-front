@@ -32,6 +32,7 @@ export default {
     './app/error.{js,ts,vue}',
     './app/content/**/*.md',
     '../../node_modules/@kk-project/preset/**/*.{js,ts,vue}',
+    '../../node_modules/@kk-project/ui-*/**/*.{js,ts,vue}',
   ],
   theme: {
     extend: {

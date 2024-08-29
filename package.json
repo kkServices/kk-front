@@ -26,13 +26,14 @@
   },
   "dependencies": {
     "@kk-project/logger": "workspace:^",
-    "@kk-project/preset": "workspace:^",
+    "@kk-project/nuxt-layer": "workspace:^",
+    "@kk-project/ui-primevue": "workspace:^",
     "@kk-project/utils": "workspace:^"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.4.0",
-    "@commitlint/config-angular": "^19.3.0",
-    "@commitlint/config-conventional": "^19.2.2",
+    "@commitlint/cli": "^19.4.1",
+    "@commitlint/config-angular": "^19.4.1",
+    "@commitlint/config-conventional": "^19.4.1",
     "@kk-project/tailwind-config": "workspace:^",
     "@kk-project/tsconfig": "workspace:^",
     "@types/node": "^20.16.2",
@@ -41,8 +42,8 @@
     "jsdom": "^25.0.0",
     "lint-staged": "^15.2.9",
     "rimraf": "^6.0.1",
-    "taze": "^0.16.6",
-    "turbo": "^2.0.14",
+    "taze": "^0.16.7",
+    "turbo": "^2.1.0",
     "typescript": "^5.5.4",
     "unbuild": "^2.0.0",
     "vitest": "^2.0.5"

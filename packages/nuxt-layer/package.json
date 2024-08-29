@@ -1,0 +1,22 @@
+{
+  "name": "@kk-project/nuxt-layer",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "./nuxt.config.ts",
+  "scripts": {
+    "dev": "nuxi dev .playground",
+    "build:prepare": "nuxt prepare .playground",
+    "generate": "nuxt generate .playground",
+    "preview": "nuxt preview .playground",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@kk-project/utils": "workspace:*",
+    "@vueuse/integrations": "^11.0.0",
+    "qrcode": "^1.5.4",
+    "vue": "^3.4.38"
+  },
+  "devDependencies": {
+    "nuxt": "^3.13.0"
+  }
+}

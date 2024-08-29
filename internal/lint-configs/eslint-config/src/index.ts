@@ -17,7 +17,7 @@ export default antfu(
   {
     ignores: [
       '**/apps/kk-pages/preset/**',
-      '**/packages/preset/primevue/**',
+      '**/packages/ui-kit/primevue/preset/**',
     ],
   },
   [

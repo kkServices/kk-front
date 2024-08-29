@@ -69,7 +69,7 @@ function payCancelHandler() {
       {{ props.isApi ? '请使用支付宝扫码' : '该订单超出单笔限制，需支付完成后手动输入订单号或等站长手动更新' }}
     </Message>
     <div class="flex-center">
-      <QRCode :text="props.qrCode" :loading="false" class="size-40" />
+      <k-qrcode :text="props.qrCode" :loading="false" class="size-40" />
     </div>
 
     <div v-if="!isApi" class="flex items-center justify-between gap-2">

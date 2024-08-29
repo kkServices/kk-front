@@ -2,6 +2,8 @@ import postcssConfig from '@kk-project/tailwind-config/postcss';
 import { appDescription } from './constants';
 
 export default defineNuxtConfig({
+  extends: ['@kk-project/nuxt-layer'],
+
   appId: 'kk-pages',
 
   imports: {
@@ -131,7 +133,7 @@ export default defineNuxtConfig({
       // },
       ripple: false,
     },
-    importPT: { as: 'Aura', from: '@kk-project/preset/primevue/aura/index' },
+    importPT: { as: 'Aura', from: '@kk-project/ui-primevue/preset/aura' },
   },
   typescript: {
     typeCheck: true,
