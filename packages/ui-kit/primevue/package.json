@@ -1,0 +1,12 @@
+{
+  "name": "@kk-project/ui-primevue",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "exports": {
+    "./preset/aura": {
+      "types": "./preset/aura/index.d.ts",
+      "default": "./preset/aura/index.js"
+    }
+  }
+}

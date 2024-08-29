@@ -2,7 +2,7 @@
   "name": "@kk-project/logger",
   "private": true,
   "scripts": {
-    "clean": "pnpm rimraf node_modules"
+    "up": "taze major -I"
   },
   "dependencies": {
     "consola": "^3.2.3",
