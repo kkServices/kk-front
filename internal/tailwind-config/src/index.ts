@@ -1,4 +1,6 @@
 import { addDynamicIconSelectors } from '@iconify/tailwind';
+// @ts-expect-error no declared types at this time
+import tailwindcssPrimeui from 'tailwindcss-primeui/src/index.js';
 import tailwindPluginUtils from './plugins/utils';
 import tailwindPresetAnimation from './preset/animation';
 import tailwindPresetHeroPatterns from './preset/hero-patterns';
@@ -112,10 +114,8 @@ export default {
   extend: {},
   plugins: [
     addDynamicIconSelectors({ scale: 1.2 }),
-    // eslint-disable-next-line ts/no-require-imports
-    require('tailwindcss-primeui'),
+    tailwindcssPrimeui,
     tailwindPluginUtils,
-
   ],
 
 };
