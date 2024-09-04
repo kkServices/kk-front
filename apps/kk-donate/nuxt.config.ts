@@ -34,6 +34,10 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     baseApiHost: '',
+    baseAlipayAppId: '',
+    baseAlipayPrivateKey: '',
+    baseAlipayPublicKey: '',
+    baseAlipayGateway: '',
     public: {
       baseApiHost: '',
     },
