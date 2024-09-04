@@ -118,7 +118,9 @@ export default defineNuxtConfig({
   },
 
   postcss: postcssConfig,
-  routeRules: {},
+  routeRules: {
+    '/': { prerender: true },
+  },
   primevue: {
     components: {
       // prefix: 'Prime',
