@@ -37,6 +37,7 @@
     "@kk-project/tailwind-config": "workspace:^",
     "@kk-project/tsconfig": "workspace:^",
     "@types/node": "^20.16.2",
+    "@vue/language-server": "^2.1.6",
     "dotenv-cli": "^7.4.2",
     "husky": "^9.1.5",
     "jsdom": "^25.0.0",

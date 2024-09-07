@@ -2,6 +2,7 @@
 definePageMeta({
   layout: 'home',
 });
+useSeoMeta({ title: 'DreamyTZK' });
 
 const socialIcon = [
   {
@@ -33,7 +34,7 @@ const socialIcon = [
           <h1 class="text-xl font-bold leading-8">
             DreamyTZK
           </h1>
-          <p>懒人</p>
+          <p>一个懒人</p>
         </div>
       </div>
       <div class="mt-10 flex-1 flex-col gap-8 px-4 py-6 flex-center md:mt-0 md:gap-16 md:px-12 md:py-0">
