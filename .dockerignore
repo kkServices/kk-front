@@ -1,9 +1,9 @@
 .dockerignore
 node_modules
-**/node_modules
 **/.next
+**/.nuxt
 docker
 .git
-logs
 .turbo
 npm-debug.log
+dist

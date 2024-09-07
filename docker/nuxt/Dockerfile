@@ -12,8 +12,9 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 COPY pnpm-workspace.yaml ./
+COPY turbo.json ./
 COPY packages ./packages
-COPY tooling ./tooling
+COPY internal ./internal
 COPY apps/${PROJECT_NAME}/package.json apps/${PROJECT_NAME}/yarn.lock* apps/${PROJECT_NAME}/package-lock.json* apps/${PROJECT_NAME}/pnpm-lock.yaml* apps/${PROJECT_NAME}/tsconfig.json ./apps/${PROJECT_NAME}/
 COPY .npmrc package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
 
@@ -25,13 +26,6 @@ RUN \
   fi
 
 WORKDIR /app/apps/${PROJECT_NAME}
-RUN \
-  if [ -f yarn.lock ]; then yarn typecheck; \
-  elif [ -f package-lock.json ]; then npm run typecheck; \
-  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm run typecheck; \
-  else echo "command not found." && exit 1; \
-  fi
-
 
 # Rebuild the source code only when needed
 FROM base AS builder
@@ -41,7 +35,7 @@ WORKDIR /app
 
 COPY --from=deps /app/node_modules ./node_modules
 COPY --from=deps /app/packages ./packages
-COPY --from=deps /app/tooling ./tooling
+COPY --from=deps /app/internal ./internal
 COPY --from=deps /app/apps/${PROJECT_NAME} ./apps/${PROJECT_NAME}
 
 COPY . .
@@ -61,8 +55,9 @@ ARG PROJECT_NAME
 ENV PROJECT_NAME_ENV=${PROJECT_NAME}
 WORKDIR /app
 
-ENV NODE_ENV production
-ENV PORT 3000
+ENV NODE_ENV="production"
+ENV HOSTNAME="0.0.0.0"
+ENV PORT=3000
 
 RUN addgroup --system --gid 1001 nodejs && adduser --system --uid 1001 nuxtjs
 
@@ -70,7 +65,6 @@ COPY --from=builder --chown=nuxtjs:nodejs /app/.npmrc ./.npmrc
 COPY --from=builder --chown=nuxtjs:nodejs /app/apps/${PROJECT_NAME_ENV}/.output ./
 COPY --from=builder --chown=nuxtjs:nodejs /app/apps/${PROJECT_NAME_ENV}/.env.local ./
 
-RUN npm i @dotenvx/dotenvx -g
 RUN ls
 RUN cd ./server && corepack enable pnpm && pnpm install
 
@@ -78,4 +72,4 @@ USER nuxtjs
 
 EXPOSE 3000
 
-CMD HOSTNAME="0.0.0.0" dotenvx run --env-file .env.local -- node ./server/index.mjs
+CMD ["node", "./server/index.mjs"]
