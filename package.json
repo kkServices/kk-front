@@ -15,7 +15,6 @@
     "turbo:stub": "turbo run stub",
     "turbo:prepare": "turbo run build:prepare",
     "dev": "turbo run dev",
-    "dev:donate": "pnpm --filter=@kk-project/kk-donate run dev",
     "dev:pages": "pnpm --filter=@kk-project/kk-pages run dev",
     "build": "turbo run build",
     "build:donate": "pnpm --filter=@kk-project/kk-donate run build",
