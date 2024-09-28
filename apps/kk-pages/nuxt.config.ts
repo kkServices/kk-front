@@ -120,6 +120,9 @@ export default defineNuxtConfig({
   postcss: postcssConfig,
   routeRules: {
     '/': { prerender: true },
+    '/vivo50': {
+      redirect: 'https://www.kkfive.top?money=50',
+    },
   },
   primevue: {
     components: {
